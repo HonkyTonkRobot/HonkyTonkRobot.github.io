@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog: Joel-Anderson-Tohora-2025</title>
+  <title>Human Skills - Sprint 2</title>
 
   <link rel="stylesheet" href="./styles/main.css">
 
@@ -26,37 +26,98 @@
 
     <main>
 
-      <section id="hero">
+      <section id="blog-hero">
 
-        <div class="hero-content">
+        <div class="blog-title-text">
 
-          <h1>Learning some<span class="highlight-text">`stuff`</span></h1>
-          <p>Thanks for joining me on the journey of learning about web development.</p>
+          <h1>Blog</h1>
+          <div class="blog-hero-image">
+
+          <img id="recent-image" src="./assets/images/screenshot-blog-in-progress.png" />
+          <div class="hero-text-content">
 
         </div>
 
       </section>
 
-      <section id="recent-blog-posts">
+      <section id="blog-article">
 
-        <h2>Recent Posts</h2>
-        <div class="recent-content">
+        <ariticle>  
+          
+          <h2>Post Titlec</h2>
+  
+          <p class="first-paragraph">
+            In an HTML document there are elements, think of elements like the building blocks of a web page. These elements get stacked on top of each other, and each element has a size or an amount of space they take up on the webpage. 
+          </p>
+            
+  
+          <p>
+              Imagine with me for a minute these HTML elements are bricks for building a house, and you have a pile of bricks that you want to stack up. You place your first brick on the ground, then you place the second brick on top of the first brick. This brick is not touching the ground it is the height of the first brick away from the ground. Each brick you stack gets further from the ground as it is offset by the height of all the bricks below added together.
+          </p>
+  
+          <p>
+              OK, so elements are just like the bricks When they get stacked, the first element takes it's space on the page, then when the next element gets stacked on, it takes its space, etc. 
+          </p>
 
-          <img id="recent-image" src="./assets/images/screenshot-blog-in-progress.png" />
-          <div class="text-content">
+  
+          <p>
+              So how do relative, absolute, and fixed positioning in CSS affect these stacked elements in HTML?
+          </p>
+  
+          <p>
+              When an html element gets one of these CSS positioning properties associated with it, it makes it so the element is no longer bound by the fundamentals of the stack. They can now move around independent of the stack.
+          </p>
+  
+          <p>
+              The relative position property moves the element from it's stacked position freely in any direction, without affecting the position of the other elements in the stack. Essentially the normal space that element would be holding is still reserved, but the element has move from its normal space. Here's what the syntax of the relative position looks like.
+          </p>
+  
+          <p>
+              _In this example the div with an id=1 is moved 100px to the right with the left property, while the div with an id=2 has not moved._ 
+          </p>
+  
+          <p>
+              The absolute position property moves the element a fixed distance relative to the position of the element it is inside (also know as the parent element) This means if the parent element moves when displayed on different sized screens, the element with the absolute position (also know as the child element) will still be the same exact set distance from the edge of it's parent element. Here's what the syntax of the absolute position looks like.
+          </p>
 
-            <h3>Add HTML & CSS to Blog</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempus vel
-              nisl eget facilisis. Phasellus consectetur bibendum nulla. Vivamus euismod id
-              orci dictum facilisis. Ut eget nisi at orci rhoncus mollis. Aenean pulvinar
-              massa a luctus molestie. Donec tortor libero, pharetra ut urna sit amet, iaculis
-              dignissim sem. Duis ix</p>
+          <p>
+              The absolute position property moves the element a fixed distance relative to the position of the element it is inside (also know as the parent element) This means if the parent element moves when displayed on different sized screens, the element with the absolute position (also know as the child element) will still be the same exact set distance from the edge of it's parent element. Here's what the syntax of the absolute position looks like.
+          </p>
 
-            <button>Read more...</button>
+          <p>
+              _In this example the child div with an id=2 would be place 10px from the top and 50px from the left of the parent div with an id=1_
+          </p>
 
-          </div>
+          <p>
+              The fixed position property removes the element from the stack, so it actually takes up no space at all in the stack. It's position is now relative to the screen. and it's position will stay in the same place as the page is scrolled. Here's what the syntax of the fixed position looks like.
+          </p>
 
-        </div>
+          <p>
+              _This example would place the element in the bottom right hand corner of the screen_
+          </p>
+          
+          <p>
+              You may have noticed these position properties can allow elements to be visually on top of each other on the page. There is one more interesting property that can be manipulated to affect which elements are on top. That property is called z-index, which dictates which order the overlapping elements are in. This is done by giving the elements z-index property a number value. The highest number will be on top, then the next hightest down to the lowest number positioning the element on the bottom.
+          </p>
+
+          <p>
+              These positioning elements create a way to make interesting page designs that are not limited by the standard box sizes of the elements.
+          </p>
+          <h3>Resources</h3>
+          <p>
+              Here are the resources I used to learn about positioning properties. Have a read as their are some valuable nuggets of information, and some hands on testing of how these properties work.
+          </p>
+
+            <link a href="https://www.geeksforgeeks.org/difference-between-relative-and-absolute-position-in-css
+" >Geeksforgeeks.org</link>
+            <link a href="https://www.w3schools.com/Css/css_positioning.asp
+" >w3schools.com</link>
+            <link a href="https://www.webdevbydoing.com/whats-the-difference-between-static-relative-absolute-and-fixed-positioning/
+" >webdevbydoing.com</link>
+            <link a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position
+" >developer.mozilla.org</link>
+        </ariticle> 
+
 
       </section>
 
@@ -64,7 +125,7 @@
 
     <footer>
 
-      <div class="footer-content">
+      <div class="">
 
         <img id="footer-img" src="./assets/images/honkytonk-robot.png" />
       <nav class="centered">
