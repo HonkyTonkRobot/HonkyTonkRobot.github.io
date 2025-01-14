@@ -70,7 +70,19 @@ border: 1px solid #fff;
 ----------------------------------------------*/
 h1 {
   font-family:monospace;
+  font-size: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+h2 {
+  font-family:monospace;
   font-size: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+h3 {
+  font-family:monospace;
+  font-size: 1rem;
   padding-bottom: 2rem;
 }
 
@@ -86,6 +98,8 @@ nav {
   gap: 1rem;
   font-family: monospace;
   font-size: 1rem;
+  position: sticky;
+  top: 20px;
 }
 
 header {
@@ -128,6 +142,8 @@ button {
 
 .recent-content {
   display: flex;
+  border: 2px solid green;
+  padding: 1.5rem;
 }
 
 .text-content {
