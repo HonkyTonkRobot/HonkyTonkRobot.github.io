@@ -207,6 +207,7 @@ button {
 8. Media Queries
 ------------------------------------------------
 - ---------------------------------------------*/
+/* mobile */
 @media (max-width: 480px) {
 
   .container {
@@ -235,8 +236,10 @@ button {
   }
 }
 
+/* tablets */
 @media (max-width: 768px) {
 }
 
+/* small laptops */
 @media (max-width: 1024px) {
 }
