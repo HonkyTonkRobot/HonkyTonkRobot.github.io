@@ -76,6 +76,7 @@ h1 {
 
 body {
   font-family:monospace;
+  background: bisque;
 }
 
 nav {
@@ -83,10 +84,18 @@ nav {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  font-family: monospace;
+  font-size: 1rem;
 }
 
 header {
   padding: .5rem 0 2rem 0;
+}
+
+button {
+  margin: 1rem;
+  padding: .5rem;
+  border-radius: .5rem;
 }
 /*----------------------------------------------
 ------------------------------------------------
@@ -103,6 +112,14 @@ header {
   padding: 0 5rem 0 5rem;
 }
 .header-img {
+  width: 8rem;
+  height: auto;
+}
+
+.highlight-text {
+  background-color: green;
+  margin: 0 0 0 0.5rem;
+  padding: .25rem;
 }
 
 .hero-content {
@@ -110,6 +127,10 @@ header {
 }
 
 .recent-content {
+  display: flex;
+}
+
+.text-content {
 }
 
 .footer-content {
@@ -132,6 +153,21 @@ header {
   padding: 2rem 0 2rem 0rem;
 }
 
+#recent-image {
+  padding: 2rem;
+  width: 40%;
+  height: auto;
+}
+
+#header-img {
+  width: 4rem;
+  height: auto;
+}
+
+#footer-img {
+  width: 4rem;
+  height: auto;
+}
 /*----------------------------------------------
 ------------------------------------------------
 6. Footer Styles
