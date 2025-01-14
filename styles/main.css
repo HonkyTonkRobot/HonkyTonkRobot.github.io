@@ -70,11 +70,23 @@ border: 1px solid #fff;
 ----------------------------------------------*/
 h1 {
   font-family:monospace;
-  font-size: 8rem;
+  font-size: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 body {
   font-family:monospace;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+header {
+  padding: .5rem 0 2rem 0;
 }
 /*----------------------------------------------
 ------------------------------------------------
@@ -87,6 +99,38 @@ body {
 3. Main Body Styles
 ------------------------------------------------
 ----------------------------------------------*/
+.container {
+  padding: 0 5rem 0 5rem;
+}
+.header-img {
+}
+
+.hero-content {
+  padding: 0 0 2rem 0;
+}
+
+.recent-content {
+}
+
+.footer-content {
+  padding: 2rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.centered {
+  width: 50%;
+  margin: 0 auto;
+}
+#hero {
+  padding: 2rem 0 2rem 0rem;
+}
+
+#recent-blog-posts {
+  padding: 2rem 0 2rem 0rem;
+}
 
 /*----------------------------------------------
 ------------------------------------------------
