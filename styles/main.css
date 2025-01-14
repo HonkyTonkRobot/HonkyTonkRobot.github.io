@@ -91,6 +91,10 @@ body {
   background: bisque;
 }
 
+p {
+  padding-bottom: 1rem;
+}
+
 nav {
   display: flex;
   justify-content: center;
@@ -111,6 +115,10 @@ button {
   padding: .5rem;
   border-radius: .5rem;
 }
+
+img {
+  padding-bottom: 1rem;
+}
 /*----------------------------------------------
 ------------------------------------------------
 2. Header & Nav Styles
@@ -122,6 +130,9 @@ button {
 3. Main Body Styles
 ------------------------------------------------
 ----------------------------------------------*/
+.italics {
+  font-style: italic;
+}
 .container {
   padding: 0 5rem 0 5rem;
 }
@@ -167,6 +178,12 @@ button {
 
 #recent-blog-posts {
   padding: 2rem 0 2rem 0rem;
+}
+
+#blog-hero-image {
+  postion: absolute;
+  left: 50px;
+  right: auto;
 }
 
 #recent-image {
