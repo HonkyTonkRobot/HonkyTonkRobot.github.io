@@ -191,3 +191,36 @@ button {
 8. Media Queries
 ------------------------------------------------
 - ---------------------------------------------*/
+@media (max-width: 480px) {
+
+  .container {
+    padding: 0 2rem 0 2rem;
+  }
+
+  #recent-image {
+    width: 90%;
+    height: auto;
+  }
+
+  .recent-content {
+    display: grid;
+  }
+  
+  .footer-content {
+    padding: 2rem 0 0 0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  #footer-img {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 1024px) {
+}
