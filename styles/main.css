@@ -154,7 +154,10 @@ img {
 .recent-content {
   display: flex;
   border: 2px solid green;
-  padding: 1.5rem;
+  padding: 25px;
+  margin-top: 20px;
+  max-width: fit-content;
+  border-radius: 10px; 
 }
 
 .text-content {
