@@ -12,199 +12,179 @@
 
 </head>
 
-<body>
+<body class="container">
 
-  <container>
+  <header class="container">
 
-    <div class="container">
-      <header>
+    <div class="pico">
+      <img id="header-img" src="/assets/images/honkytonk-robot.png" alt="green cartoonish robot wearing a cowboy hat" />
+    </div>
 
-        <div class="header-img">
-          <img id="header-img" src="/assets/images/honkytonk-robot.png"
-            alt="green cartoonish robot wearing a cowboy hat" />
-        </div>
+    <div class="pico">
 
-        <div class="pico">
-          <nav>
-            <ul>
-              <li><a href="/index.html" data-theme-switcher="auto">Home</a></li>
-              <li><a href="/pages/blog/te-houtaewa-template.html" data-theme-switcher="auto">Te houtaewa</a></li>
-              <li><a href="/pages/blog/html-css.html" data-theme-switcher="auto">HTML & CSS</a></li>
-              <li><a href="/pages/blog/learning-plan.html" data-theme-switcher="auto">Learning plan</a></li>
-              <li><a href="/pages/blog/identity-values.html" data-theme-switcher="auto">Identity & Values</a></li>
-            </ul>
-          </nav>
-        </div>
-        <nav class="centered">
-          <a href="/index.html">Home</a>
-          <a href="/pages/blog/te-houtaewa-template.html">Te houtaewa</a>
-          <a href="/pages/blog/html-css.html">HTML & CSS</a>
-          <a href="/pages/blog/learning-plan.html">Learning Plan</a>
-          <a href="/pages/blog/identity-values.html">Identity & Values</a>
+      <nav>
+        <ul>
+          <li><a href="/index.html" data-theme-switcher="auto" class="secondary">Home</a></li>
+          <li><a href="/pages/blog/te-houtaewa-template.html" data-theme-switcher="auto" class="secondary">Te
+              houtaewa</a></li>
+          <li><a href="/pages/blog/html-css.html" data-theme-switcher="auto">HTML & CSS</a></li>
+          <li><a href="/pages/blog/learning-plan.html" data-theme-switcher="auto" class="secondary">Learning plan</a>
+          </li>
+          <li><a href="/pages/blog/identity-values.html" data-theme-switcher="auto" class="secondary">Identity &
+              Values</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <main class="container">
+
+    <section class="container">
+      <hgroup>
+
+        <h1>Blog</h1>
+        <img src="/assets/images/relative-code-example.png" alt="example css code of relative position property" />
+
+        <hgroup>
+
+    </section>
+
+    <section class="container">
+      <ariticle class="pico">
+
+        <h2>The differences between relative, absolute, and fixed positioning</h2>
+
+        <p class="first-paragraph">
+          In an HTML document there are elements, think of elements like the building blocks of a web page. These
+          elements get stacked on top of each other, and each element has a size or an amount of space they take up
+          on the webpage.
+        </p>
+
+
+        <p>
+          Imagine with me for a minute these HTML elements are bricks for building a house, and you have a pile of
+          bricks that you want to stack up. You place your first brick on the ground, then you place the second
+          brick on top of the first brick. This brick is not touching the ground it is the height of the first brick
+          away from the ground. Each brick you stack gets further from the ground as it is offset by the height of
+          all the bricks below added together.
+        </p>
+
+        <p>
+          OK, so elements are just like the bricks When they get stacked, the first element takes it's space on the
+          page, then when the next element gets stacked on, it takes its space, etc.
+        </p>
+
+
+        <p>
+          So how do relative, absolute, and fixed positioning in CSS affect these stacked elements in HTML?
+        </p>
+
+        <p>
+          When an html element gets one of these CSS positioning properties associated with it, it makes it so the
+          element is no longer bound by the fundamentals of the stack. They can now move around independent of the
+          stack.
+        </p>
+
+        <p>
+          The relative position property moves the element from it's stacked position freely in any direction,
+          without affecting the position of the other elements in the stack. Essentially the normal space that
+          element would be holding is still reserved, but the element has move from its normal space. Here's what
+          the syntax of the relative position looks like.
+        </p>
+
+        <img src="/assets/images/relative-code-example.png" alt="green cartoonish robot wearing a cowboy hat" />
+
+        <p><i>_In this example the div with an id=1 is moved 100px to the right with the left property, while the div
+            with an id=2 has not moved._i</i>
+        </p>
+
+        <p>
+          The absolute position property moves the element a fixed distance relative to the position of the element
+          it is inside (also know as the parent element) This means if the parent element moves when displayed on
+          different sized screens, the element with the absolute position (also know as the child element) will
+          still be the same exact set distance from the edge of it's parent element. Here's what the syntax of the
+          absolute position looks like.
+        </p>
+
+        <img src="/assets/images/absolute-code-example.png"
+          alt="example css code explaining absolute position property" />
+
+        <p><i>_In this example the child div with an id=2 would be place 10px from the top and 50px from the left of the
+            parent div with an id=1_</i>
+        </p>
+
+        <p>
+          The fixed position property removes the element from the stack, so it actually takes up no space at all in
+          the stack. It's position is now relative to the screen. and it's position will stay in the same place as
+          the page is scrolled. Here's what the syntax of the fixed position looks like.
+        </p>
+
+        <img src="/assets/images/fixed-code-example.png" alt="example css code explaining fixed position property" />
+
+        <p>
+          <i>_This example would place the element in the bottom right hand corner of the screen_</i>
+        </p>
+
+        <p>
+          You may have noticed these position properties can allow elements to be visually on top of each other on
+          the page. There is one more interesting property that can be manipulated to affect which elements are on
+          top. That property is called z-index, which dictates which order the overlapping elements are in. This is
+          done by giving the elements z-index property a number value. The highest number will be on top, then the
+          next hightest down to the lowest number positioning the element on the bottom.
+        </p>
+
+        <p>
+          These positioning elements create a way to make interesting page designs that are not limited by the
+          standard box sizes of the elements.
+        </p>
+        <h3>Resources</h3>
+        <p>
+          Here are the resources I used to learn about positioning properties. Have a read as their are some
+          valuable nuggets of information, and some hands on testing of how these properties work.
+        </p>
+        <ul>
+          <li><a href="https://www.geeksforgeeks.org/difference-between-relative-and-absolute-position-in-css"
+              target="_blank">Geeksforgeeks.org</a></li>
+          <li><a a href="https://www.w3schools.com/Css/css_positioning.asp" target="_blank">w3schools.com</a></li>
+          <li><a a
+              href="https://www.webdevbydoing.com/whats-the-difference-between-static-relative-absolute-and-fixed-positioning/"
+              target="_blank">webdevbydoing.com</a></li>
+          <a a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"
+            target="_blank">developer.mozilla.org</a></li>
+          <ul>
+      </ariticle>
+
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="">
+
+      <img src="/assets/images/honkytonk-robot.png" alt="green cartoonish robot wearing a cowboy hat" />
+      <div class="pico">
+        <nav>
+          <ul>
+            <li><a href="/index.html" data-theme-switcher="auto" class="secondary">Home</a></li>
+            <li><a href="/pages/blog/te-houtaewa-template.html" data-theme-switcher="auto" class="secondary">Te
+                houtaewa</a></li>
+            <li><a href="/pages/blog/html-css.html" data-theme-switcher="auto">HTML & CSS</a></li>
+            <li><a href="/pages/blog/learning-plan.html" data-theme-switcher="auto" class="secondary">Learning plan</a>
+            </li>
+            <li><a href="/pages/blog/identity-values.html" data-theme-switcher="auto" class="secondary">Identity &
+                Values</a></li>
+          </ul>
         </nav>
+      </div>
 
-      </header>
+      <p>&copy; copywrite Joel Anderson 2025</p>
 
-      <main>
-
-        <section id="blog-hero">
-
-          <div class="blog-title-text">
-
-            <h1>Blog</h1>
-            <img id="blog-hero-image" src="/assets/images/relative-code-example.png"
-              alt="example css code of relative position property" />
-
-          </div>
-
-        </section>
-
-        <section id="blog-article">
-
-          <ariticle>
-
-            <h2>The differences between relative, absolute, and fixed positioning</h2>
-
-            <p class="first-paragraph">
-              In an HTML document there are elements, think of elements like the building blocks of a web page. These
-              elements get stacked on top of each other, and each element has a size or an amount of space they take up
-              on the webpage.
-            </p>
-
-
-            <p>
-              Imagine with me for a minute these HTML elements are bricks for building a house, and you have a pile of
-              bricks that you want to stack up. You place your first brick on the ground, then you place the second
-              brick on top of the first brick. This brick is not touching the ground it is the height of the first brick
-              away from the ground. Each brick you stack gets further from the ground as it is offset by the height of
-              all the bricks below added together.
-            </p>
-
-            <p>
-              OK, so elements are just like the bricks When they get stacked, the first element takes it's space on the
-              page, then when the next element gets stacked on, it takes its space, etc.
-            </p>
-
-
-            <p>
-              So how do relative, absolute, and fixed positioning in CSS affect these stacked elements in HTML?
-            </p>
-
-            <p>
-              When an html element gets one of these CSS positioning properties associated with it, it makes it so the
-              element is no longer bound by the fundamentals of the stack. They can now move around independent of the
-              stack.
-            </p>
-
-            <p>
-              The relative position property moves the element from it's stacked position freely in any direction,
-              without affecting the position of the other elements in the stack. Essentially the normal space that
-              element would be holding is still reserved, but the element has move from its normal space. Here's what
-              the syntax of the relative position looks like.
-            </p>
-
-            <img id="relative-code-example" src="/assets/images/relative-code-example.png"
-              alt="green cartoonish robot wearing a cowboy hat" />
-
-            <p class="italics">
-              _In this example the div with an id=1 is moved 100px to the right with the left property, while the div
-              with an id=2 has not moved._
-            </p>
-
-            <p>
-              The absolute position property moves the element a fixed distance relative to the position of the element
-              it is inside (also know as the parent element) This means if the parent element moves when displayed on
-              different sized screens, the element with the absolute position (also know as the child element) will
-              still be the same exact set distance from the edge of it's parent element. Here's what the syntax of the
-              absolute position looks like.
-            </p>
-
-            <img id="absolute-code-example" src="/assets/images/absolute-code-example.png"
-              alt="example css code explaining absolute position property" />
-
-            <p class="italics">
-              _In this example the child div with an id=2 would be place 10px from the top and 50px from the left of the
-              parent div with an id=1_
-            </p>
-
-            <p>
-              The fixed position property removes the element from the stack, so it actually takes up no space at all in
-              the stack. It's position is now relative to the screen. and it's position will stay in the same place as
-              the page is scrolled. Here's what the syntax of the fixed position looks like.
-            </p>
-
-            <img id="fixed-code-example" src="/assets/images/fixed-code-example.png"
-              alt="example css code explaining fixed position property" />
-
-            <p class="italics">
-              _This example would place the element in the bottom right hand corner of the screen_
-            </p>
-
-            <p>
-              You may have noticed these position properties can allow elements to be visually on top of each other on
-              the page. There is one more interesting property that can be manipulated to affect which elements are on
-              top. That property is called z-index, which dictates which order the overlapping elements are in. This is
-              done by giving the elements z-index property a number value. The highest number will be on top, then the
-              next hightest down to the lowest number positioning the element on the bottom.
-            </p>
-
-            <p>
-              These positioning elements create a way to make interesting page designs that are not limited by the
-              standard box sizes of the elements.
-            </p>
-            <h3>Resources</h3>
-            <p>
-              Here are the resources I used to learn about positioning properties. Have a read as their are some
-              valuable nuggets of information, and some hands on testing of how these properties work.
-            </p>
-            <ul>
-              <li><a href="https://www.geeksforgeeks.org/difference-between-relative-and-absolute-position-in-css"
-                  target="_blank">Geeksforgeeks.org</a></li>
-              <li><a a href="https://www.w3schools.com/Css/css_positioning.asp" target="_blank">w3schools.com</a></li>
-              <li><a a
-                  href="https://www.webdevbydoing.com/whats-the-difference-between-static-relative-absolute-and-fixed-positioning/"
-                  target="_blank">webdevbydoing.com</a></li>
-              <a a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"
-                target="_blank">developer.mozilla.org</a></li>
-              <ul>
-          </ariticle>
-
-
-        </section>
-
-      </main>
-
-      <footer>
-
-        <div class="">
-
-          <img id="footer-img" src="/assets/images/honkytonk-robot.png"
-            alt="green cartoonish robot wearing a cowboy hat" />
-          <div class="pico">
-            <nav>
-              <ul>
-                <li><a href="/index.html" data-theme-switcher="auto">Home</a></li>
-                <li><a href="/pages/blog/te-houtaewa-template.html" data-theme-switcher="auto">Te houtaewa</a></li>
-                <li><a href="/pages/blog/html-css.html" data-theme-switcher="auto">HTML & CSS</a></li>
-                <li><a href="/pages/blog/learning-plan.html" data-theme-switcher="auto">Learning plan</a></li>
-                <li><a href="/pages/blog/identity-values.html" data-theme-switcher="auto">Identity & Values</a></li>
-              </ul>
-            </nav>
-          </div>
-          <nav class="centered">
-            <a href="/index.html">Home</a>
-            <a href="/pages/blog/te-houtaewa-template.html">Te houtaewa</a>
-            <a href="/pages/blog/html-css.html">HTML & CSS</a>
-            <a href="/pages/blog/learning-plan.html">Learning Plan</a>
-            <a href="/pages/blog/identity-values.html">Identity & Values</a>
-          </nav>
-
-          <!-- TODO: figure out how to add a copywrite symbol -->
-          <p>&copy; copywrite Joel Anderson 2025</p>
-
-        </div>
-      </footer>
-  </container>
+    </div>
+  </footer>
 </body>
 
 </html>
