@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark" />
+  <meta name="author" content="ChatGPT" />
+  <meta name="dcterms.date" content="2025-01-18" />
+  <meta name="description" content="Testing Syntax through pandoc" />
+  <title>GitHub Markdown Syntax</title>
+  <link href="/styles/pico.yellow.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="/index.html" class="secondary">Home</a></li>
+          <li><a href="/pages/blog/te-houtaewa-template.html" class="secondary">Te
+              houtaewa</a></li>
+        </ul>
+        <ul>
+          <li>
+            <details class="dropdown">
+              <summary role="button" class="secondary">Theme</summary>
+              <ul>
+                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+      <hgroup>
+        <h2>Blog</h2>
+      </hgroup>
+    </div>
+  </header>
+  <!-- ./ Header -->
+
+  <!-- Main -->
+  <main class="container">
+    <article>
+
+      <hgroup>
+        <h1>GitHub Markdown Syntax</h1>
+        <hr />
+        <p>Testing Syntax through pandoc</p>
+        <p>2025-01-18</p>
+      </hgroup>
+
+      <table>
+        <thead>
+          <tr>
+            <th>❗<a href="/pages/alerts.html">Click Here</a> To see how to make Markdown/HTML Alerts</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+      <h2 id="headers">1. Headers</h2>
+      <p>Use <code>#</code> for headers. The number of <code>#</code> symbols
+        indicates the level of the header.</p>
+      <pre><code># Header 1
+## Header 2
+### Header 3
+#### Header 4
+##### Header 5
+###### Header 6</code></pre>
+      <h1 id="header-1">Header 1</h1>
+      <h2 id="header-2">Header 2</h2>
+      <h3 id="header-3">Header 3</h3>
+      <h4 id="header-4">Header 4</h4>
+      <h5 id="header-5">Header 5</h5>
+      <h6 id="header-6">Header 6</h6>
+      <h2 id="emphasis">2. Emphasis</h2>
+      <ul>
+        <li><strong>Bold</strong>: Use <code>**text**</code> or
+          <code>__text__</code>
+        </li>
+        <li><em>Italic</em>: Use <code>*text*</code> or <code>_text_</code></li>
+        <li><del>Strikethrough</del>: Use <code>~~text~~</code></li>
+        <li><strong><em>Italic Bold</em></strong> Use
+          <code>***text***</code>
+        </li>
+      </ul>
+      <pre><code>**Bold Text**
+*Italic Text*
+~~Strikethrough~~</code></pre>
+      <p><strong>Bold Text</strong><br />
+        <em>Italic Text</em><br />
+        <del>Strikethrough</del>
+      </p>
+      <h2 id="lists">3. Lists</h2>
+      <ul>
+        <li><strong>Unordered Lists</strong>: Use <code>*</code>,
+          <code>+</code>, or <code>-</code> followed by a space.
+        </li>
+      </ul>
+      <pre><code>* Item 1
+* Item 2
+  * Subitem 1
+  * Subitem 2</code></pre>
+      <ul>
+        <li>Item 1<br />
+        </li>
+        <li>Item 2
+          <ul>
+            <li>Subitem 1<br />
+            </li>
+            <li>Subitem 2</li>
+          </ul>
+        </li>
+        <li><strong>Ordered Lists</strong>: Use numbers followed by a
+          period.</li>
+      </ul>
+      <pre><code>1. First item
+2. Second item
+   1. Subitem 1
+   2. Subitem 2</code></pre>
+      <h2 id="links">4. Links</h2>
+      <p>Create links using <code>[link text](URL)</code>.</p>
+      <pre><code>[GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#line-breaks)</code></pre>
+      <p><a
+          href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#line-breaks">GitHub</a>
+      </p>
+      <h2 id="images">5. Images</h2>
+      <p>Insert images using <code>![alt text](image URL)</code>.</p>
+      <pre><code>![GitHub Logo](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)</code></pre>
+      <figure>
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" />
+        <figcaption aria-hidden="true">GitHub Logo</figcaption>
+      </figure>
+      <h2 id="blockquotes">6. Blockquotes</h2>
+      <p>Use <code>&gt;</code> to create blockquotes.</p>
+      <pre><code>&gt; This is a blockquote.
+&gt; This is a blockquote.</code></pre>
+      <blockquote>
+        <p>This is a blockquote.<br />
+          This is a blockquote.</p>
+      </blockquote>
+      <h2 id="code">7. Code</h2>
+      <ul>
+        <li><strong>Inline Code</strong>: Use backticks
+          <code>`code`</code>.
+        </li>
+        <li><strong>Code Blocks</strong>: Use triple backticks or indent with
+          four spaces.</li>
+      </ul>
+      <pre><code>Inline code: `print(&quot;Hello, World!&quot;)`
+</code></pre>
+      <p>Inline code: <code>print("Hello, World!")</code></p>
+      <p>Code Blocks:</p>
+      <pre><code>def hello():
+    print(&quot;Hello, World!&quot;)</code></pre>
+      <h2 id="horizontal-rules">8. Horizontal Rules</h2>
+      <p>Create a horizontal rule with three or more dashes, asterisks, or
+        underscores.</p>
+      <pre><code>---</code></pre>
+      <hr />
+      <h2 id="tables">9. Tables</h2>
+      <p>Create tables using pipes <code>|</code> and hyphens
+        <code>-</code>.
+      </p>
+      <pre><code>| Header 1 | Header 2 |
+|----------|----------|
+| Row 1    | Row 2    |
+| Row 3    | Row 4    |</code></pre>
+      <table>
+        <thead>
+          <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Row 1</td>
+            <td>Row 2</td>
+          </tr>
+          <tr>
+            <td>Row 3</td>
+            <td>Row 4</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="task-lists">10. Task Lists</h2>
+      <p>Create task lists using <code>- [ ]</code> for unchecked and
+        <code>- [x]</code> for checked items.
+      </p>
+      <pre><code>- [x] Task 1
+- [ ] Task 2</code></pre>
+      <ul class="task-list">
+        <li><label><input type="checkbox" checked="" />Task 1</label></li>
+        <li><label><input type="checkbox" />Task 2</label></li>
+      </ul>
+      <h2 id="footnotes">11. Footnotes</h2>
+      <p>Create footnotes using <code>[^1]</code> and define them at the
+        bottom.</p>
+      <pre><code>Here is a footnote reference[^1].
+
+[^1]: Here is the footnote.</code></pre>
+      <p>Here is a footnote reference<a href="#fn1" class="footnote-ref" id="fnref1"
+          role="doc-noteref"><sup>1</sup></a>.</p>
+      <h2 id="syntax-highlighting">12. Syntax Highlighting</h2>
+      <p>You can specify the language for syntax highlighting in code
+        blocks.</p>
+      <pre><code>```python
+def hello():
+    print(&quot;Hello, World!&quot;)</code></pre>
+      <p>```</p>
+      <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+        <hr />
+        <ol>
+          <li id="fn1">
+            <p>Here is the footnote.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Medias-->
+      <figure>
+        <img src="#" alt="Honkytonk Robot Dude" />
+        <figcaption>
+          Image from
+          <a href="#" target="_blank">blank</a>
+        </figcaption>
+      </figure>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="container">
+    <small>&copy; copywrite 2025 <a href="https://github.com/HonkyTonkRobot">Joel Anderson</a> •
+      <a href="/index.html" data-theme-switcher="auto">Home</a> •
+      <a href="/pages/blog/te-houtaewa-template.html" data-theme-switcher="auto">Te houtaewa</a>
+    </small>
+
+  </footer>
+  <!-- ./ Footer -->
+
+
+  <!-- Minimal theme switcher -->
+  <script src="/scripts/minimal-theme-switcher.js"></script>
+</body>
+
+</html>

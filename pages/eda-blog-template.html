@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark" />
+$for(author-meta)$
+  <meta name="author" content="$author-meta$" />
+$endfor$
+$if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$" />
+$endif$
+$if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+$if(description-meta)$
+  <meta name="description" content="$description-meta$" />
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  <link href="/styles/pico.yellow.css" rel="stylesheet" type="text/css">
+$for(css)$
+$endfor$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+$if(math)$
+  $math$
+$endif$
+</head>
+<body>
+$for(include-before)$
+$include-before$
+$endfor$
+$if(title)$
+
+    <!-- Header -->
+    <header>
+      <div class="container">
+      <nav>
+        <ul>
+          <li><a href="/index.html" class="secondary" >Home</a></li>
+          <li><a href="/pages/blog/te-houtaewa-template.html" class="secondary" >Te
+              houtaewa</a></li>
+          <li><a href="/pages/blog/html-css.html" class="secondary" >HTML & CSS</a></li>
+          <li><a href="/pages/blog/learning-plan.html" class="secondary" >Learning plan</a>
+          </li>
+          <li><a href="/pages/blog/identity-values.html" class="secondary" >Identity & Values</a></li>
+          <li><a href="/pages/blog/md-syntax.html" class="secondary" >Markdown Madness</a></li>
+        </ul>
+        <ul>
+          <li>
+            <details class="dropdown">
+              <summary role="button" class="secondary">Theme</summary>
+              <ul>
+                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+        </nav>
+        <hgroup>
+          <h2>Blog</h2>
+        </hgroup>
+      </div>
+    </header>
+    <!-- ./ Header -->
+
+    <!-- Main -->
+    <main class="container">
+        <article>
+
+          <hgroup>
+            <h1>$title$</h1>
+            <hr/>
+            <p>$description-meta$</p>
+            <p>$date-meta$</p>
+          </hgroup>
+
+$endif$
+$body$
+
+        <!-- Medias-->
+          <figure>
+            <img
+              src="#"
+              alt="Honkytonk Robot Dude"
+            />
+            <figcaption>
+              Image from
+              <a href="#" target="_blank">blank</a>
+            </figcaption>
+          </figure>
+      </article> 
+    </main>
+
+    <!-- Footer -->
+    <footer class="container">
+      <small
+        >&copy; copywrite 2025 <a href="https://github.com/HonkyTonkRobot">Joel Anderson</a> •
+        <a href="/index.html" data-theme-switcher="auto" >Home</a> •
+        <a href="/pages/blog/te-houtaewa-template.html" data-theme-switcher="auto" >Te houtaewa</a>
+      </small>
+      
+    </footer>
+    <!-- ./ Footer -->
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+    <!-- Minimal theme switcher -->
+    <script src="/scripts/minimal-theme-switcher.js"></script>
+</body>
+</html>
