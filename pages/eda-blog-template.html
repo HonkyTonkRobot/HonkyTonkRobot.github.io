@@ -18,7 +18,7 @@ $if(description-meta)$
   <meta name="description" content="$description-meta$" />
 $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
-  <link href="styles/pico.yellow.css" rel="stylesheet" type="text/css">
+  <link href="/styles/pico.yellow.css" rel="stylesheet" type="text/css">
 $for(css)$
 $endfor$
 $for(header-includes)$
@@ -39,22 +39,27 @@ $if(title)$
       <div class="container">
       <nav>
         <ul>
-          <li><a href="/index.html" data-theme-switcher="auto" class="secondary">Home</a></li>
-          <li><a href="/pages/blog/te-houtaewa-template.html" data-theme-switcher="auto" class="secondary">Te
+          <li><a href="/index.html" class="secondary" >Home</a></li>
+          <li><a href="/pages/blog/te-houtaewa-template.html" class="secondary" >Te
               houtaewa</a></li>
+          <li><a href="/pages/blog/html-css.html" class="secondary" >HTML & CSS</a></li>
+          <li><a href="/pages/blog/learning-plan.html" class="secondary" >Learning plan</a>
+          </li>
+          <li><a href="/pages/blog/identity-values.html" class="secondary" >Identity & Values</a></li>
+          <li><a href="/pages/blog/md-syntax.html" class="secondary" >Markdown Madness</a></li>
         </ul>
-          <ul>
-            <li>
-              <details class="dropdown">
-                <summary role="button" class="secondary">Theme</summary>
-                <ul>
-                  <li><a href="#" data-theme-switcher="auto">Auto</a></li>
-                  <li><a href="#" data-theme-switcher="light">Light</a></li>
-                  <li><a href="#" data-theme-switcher="dark">Dark</a></li>
-                </ul>
-              </details>
-            </li>
-          </ul>
+        <ul>
+          <li>
+            <details class="dropdown">
+              <summary role="button" class="secondary">Theme</summary>
+              <ul>
+                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
         </nav>
         <hgroup>
           <h2>Blog</h2>
@@ -89,7 +94,7 @@ $body$
             </figcaption>
           </figure>
       </article> 
-      </main>
+    </main>
 
     <!-- Footer -->
     <footer class="container">
@@ -107,6 +112,6 @@ $include-after$
 $endfor$
 
     <!-- Minimal theme switcher -->
-    <script src="scripts/minimal-theme-switcher.js"></script>
+    <script src="/scripts/minimal-theme-switcher.js"></script>
 </body>
 </html>
