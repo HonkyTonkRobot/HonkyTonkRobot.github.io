@@ -11,9 +11,9 @@ I use this blog as a way to document my development as a software/web developer.
 
 ## About me
 
-I'm just a farm boy who knows how make stuff out of atoms[^1] trying to figure out how to make stuff out of bits. If you would like to read more about my previous career as a furniture maker check out the about page on the blog [Honkytonk Robot - About Page](#)
+I'm just a farm boy who knows how to make stuff out of atoms trying to figure out how to make stuff out of bits. If you would like to read more about my previous career as a furniture maker check out the about page on the blog [Honkytonk Robot - About Page](#) _coming soon_
 
-
+_pictures coming soon_
 ![Picture of me winning National Brangus Cattle Pee Wee (under 18) Championship](#)
 ![Picture of the CNC I built](#)
 ![Pictures of things I've built with CNC routers](#)
@@ -29,10 +29,9 @@ The Idea of this readme.md is to give you a roadmap for finding the things you'd
 - Learning HTML & CSS, (DevAcademy)
 - Learning how to use git, and improve my GitHub skills, (DevAcademy)
 - Thinking like a programmer, Time MGMT, (Pre-DevAcademy Curriculum)
-- introduced me to vim :exploding_head: (There's beginning to be a theme, Thanks Mikey!)
+- Was introduced me to vim :exploding_head: (There's beginning to be a theme, Thanks Mikey!)
 - Reading Little Schemer! (Thanks Mikey!)
 - Learning how to use GitHub and Markdown (Thanks Mikey!)
 
 [!NOTE] Will add links to these in the future
 
-[^1]: Bits vs atoms is a common expression for things made from software vs things made from the physical world.
