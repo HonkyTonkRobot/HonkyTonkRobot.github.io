@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark" />
   <meta name="author" content="Joel Anderson" />
-  <meta name="description" content="In an HTML document there are elements, think of elements like the building blocks of a web page. These elements get stacked on top of each other, and each element has a size or an amount of space they take up on the webpage." />
+  <meta name="description"
+    content="In an HTML document there are elements, think of elements like the building blocks of a web page. These elements get stacked on top of each other, and each element has a size or an amount of space they take up on the webpage." />
   <title>What are the differences between relative, absolute, and fixed positioning?</title>
   <link href="/styles/pico.yellow.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header>
-      <div class="container">
+  <!-- Header -->
+  <header>
+    <div class="container">
       <nav>
         <ul>
           <li>
             <details class="dropdown">
               <summary class="secondary">Blog</summary>
               <ul>
-                <li><a href="/index.html" >Home</a></li>
+                <li><a href="/index.html">Home</a></li>
                 <li>-----</li>
-                <li><a href="/pages/blog/te-houtaewa-template.html" >Te Houtaewa</a></li>
-                <li><a href="/pages/blog/identity-values.html" >Identity &amp; Values</a></li>
-                <li><a href="/pages/blog/learning-plan.html" >HTML &amp; CSS</a></li>
-                <li><a href="/pages/blog/md-syntax.html" >Markdown Madness</a></li>
+                <li><a href="/pages/blog/te-houtaewa-template.html">Te Houtaewa</a></li>
+                <li><a href="/pages/blog/identity-values.html">Identity &amp; Values</a></li>
+                <li><a href="/pages/blog/learning-plan.html">HTML &amp; CSS</a></li>
+                <li><a href="/pages/blog/md-syntax.html">Markdown Madness</a></li>
               </ul>
             </details>
           </li>
@@ -43,50 +46,52 @@
             </details>
           </li>
         </ul>
-        </nav>
-      </div>
-    </header>
-    <!-- ./ Header -->
+      </nav>
+    </div>
+  </header>
+  <!-- ./ Header -->
 
-    <!-- Main -->
-    <main class="container">
-        <article>
+  <!-- Main -->
+  <main class="container">
+    <article>
 
-          <hgroup>
-            <h1>What are the differences between relative, absolute, and
-fixed positioning?</h1>
-            <hr/>
-            <p>In an HTML document there are elements, think of elements like the building blocks of a web page. These elements get stacked on top of each other, and each element has a size or an amount of space they take up on the webpage.</p>
-            <p></p>
-          </hgroup>
+      <hgroup>
+        <h1>What are the differences between relative, absolute, and
+          fixed positioning?</h1>
+        <hr />
+        <p>In an HTML document there are elements, think of elements like the building blocks of a web page. These
+          elements get stacked on top of each other, and each element has a size or an amount of space they take up on
+          the webpage.</p>
+        <p></p>
+      </hgroup>
 
-<p>Imagine with me for a minute these HTML elements are bricks for
-building a house, and you have a pile of bricks that you want to stack
-up. You place your first brick on the ground, then you place the second
-brick on top of the first brick. This brick is not touching the ground
-it is the height of the first brick away from the ground. Each brick you
-stack gets further from the ground as it is offset by the height of all
-the bricks below added together.</p>
-<p>OK, so elements are just like the bricks When they get stacked, the
-first element takes it’s space on the page, then when the next element
-gets stacked on, it takes its space, etc.</p>
-<h5
-id="so-how-do-relative-absolute-and-fixed-positioning-in-css-affect-these-stacked-elements-in-html">So
-how do relative, absolute, and fixed positioning in CSS affect these
-stacked elements in HTML?</h5>
-<p>When an html element gets one of these CSS positioning properties
-associated with it, it makes it so the element is no longer bound by the
-fundamentals of the stack. They can now move around independent of the
-stack.</p>
-<h3 id="relative-position">Relative Position</h3>
-<p>The relative position property moves the element from it’s stacked
-position freely in any direction, without affecting the position of the
-other elements in the stack. Essentially the normal space that element
-would be holding is still reserved, but the element has move from its
-normal space. Here’s what the syntax of the relative position looks
-like.</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+      <p>Imagine with me for a minute these HTML elements are bricks for
+        building a house, and you have a pile of bricks that you want to stack
+        up. You place your first brick on the ground, then you place the second
+        brick on top of the first brick. This brick is not touching the ground
+        it is the height of the first brick away from the ground. Each brick you
+        stack gets further from the ground as it is offset by the height of all
+        the bricks below added together.</p>
+      <p>OK, so elements are just like the bricks When they get stacked, the
+        first element takes it’s space on the page, then when the next element
+        gets stacked on, it takes its space, etc.</p>
+      <h5 id="so-how-do-relative-absolute-and-fixed-positioning-in-css-affect-these-stacked-elements-in-html">So
+        how do relative, absolute, and fixed positioning in CSS affect these
+        stacked elements in HTML?</h5>
+      <p>When an html element gets one of these CSS positioning properties
+        associated with it, it makes it so the element is no longer bound by the
+        fundamentals of the stack. They can now move around independent of the
+        stack.</p>
+      <h3 id="relative-position">Relative Position</h3>
+      <p>The relative position property moves the element from it’s stacked
+        position freely in any direction, without affecting the position of the
+        other elements in the stack. Essentially the normal space that element
+        would be holding is still reserved, but the element has move from its
+        normal space. Here’s what the syntax of the relative position looks
+        like.</p>
+      <div class="sourceCode" id="cb1">
+        <pre
+          class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#1</span> {</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">Position</span><span class="ch">:</span> <span class="dv">Relative</span><span class="op">;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">left</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">px</span><span class="op">;</span></span>
@@ -99,20 +104,22 @@ class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">2</span><span class="dt">&gt;</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Has no position property<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
-<p><em>In this example the div with an id=1 is moved 100px to the right
-with the left property, while the div with an id=2 has not
-moved.</em></p>
-<h3 id="absolute-position">Absolute Position</h3>
-<p>The absolute position property moves the element a fixed distance
-relative to the position of the element it is inside (also know as the
-parent element) This means if the parent element moves when displayed on
-different sized screens, the element with the absolute position (also
-know as the child element) will still be the same exact set distance
-from the edge of it’s parent element. Here’s what the syntax of the
-absolute position looks like.</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre>
+      </div>
+      <p><em>In this example the div with an id=1 is moved 100px to the right
+          with the left property, while the div with an id=2 has not
+          moved.</em></p>
+      <h3 id="absolute-position">Absolute Position</h3>
+      <p>The absolute position property moves the element a fixed distance
+        relative to the position of the element it is inside (also know as the
+        parent element) This means if the parent element moves when displayed on
+        different sized screens, the element with the absolute position (also
+        know as the child element) will still be the same exact set distance
+        from the edge of it’s parent element. Here’s what the syntax of the
+        absolute position looks like.</p>
+      <div class="sourceCode" id="cb2">
+        <pre
+          class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#2</span> {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">Position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">top</span><span class="ch">:</span> <span class="dv">10</span><span class="dt">px</span><span class="op">;</span></span>
@@ -126,18 +133,20 @@ class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Has absolute property<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
-<p><em>In this example the child div with an id=2 would be place 10px
-from the top and 50px from the left of the parent div with an
-id=1</em></p>
-<h3 id="fixed-position">Fixed Position</h3>
-<p>The fixed position property removes the element from the stack, so it
-actually takes up no space at all in the stack. It’s position is now
-relative to the screen. and it’s position will stay in the same place as
-the page is scrolled. Here’s what the syntax of the fixed position looks
-like.</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre>
+      </div>
+      <p><em>In this example the child div with an id=2 would be place 10px
+          from the top and 50px from the left of the parent div with an
+          id=1</em></p>
+      <h3 id="fixed-position">Fixed Position</h3>
+      <p>The fixed position property removes the element from the stack, so it
+        actually takes up no space at all in the stack. It’s position is now
+        relative to the screen. and it’s position will stay in the same place as
+        the page is scrolled. Here’s what the syntax of the fixed position looks
+        like.</p>
+      <div class="sourceCode" id="cb3">
+        <pre
+          class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#1</span> {</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">Position</span><span class="ch">:</span> <span class="dv">fixed</span><span class="op">;</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">bottom</span><span class="ch">:</span> <span class="dv">10</span><span class="dt">px</span><span class="op">;</span></span>
@@ -151,47 +160,48 @@ class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">2</span><span class="dt">&gt;</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Has no position property<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
-<p><em>This example would place the element in the bottom right hand
-corner of the screen</em></p>
-<p>You may have noticed these position properties can allow elements to
-be visually on top of each other on the page. There is one more
-interesting property that can be manipulated to affect which elements
-are on top. That property is called z-index, which dictates which order
-the overlapping elements are in. This is done by giving the elements
-z-index property a number value. The highest number will be on top, then
-the next hightest down to the lowest number positioning the element on
-the bottom.</p>
-<p>These positioning elements create a way to make interesting page
-designs that are not limited by the standard box sizes of the
-elements.</p>
-<h4 id="resources">Resources</h4>
-<p>Here are the resources I used to learn about positioning properties.
-Have a read as their are some valuable nuggets of information, and some
-hands on testing of how these properties work.</p>
-<ul>
-<li>https://www.geeksforgeeks.org/difference-between-relative-and-absolute-position-in-css</li>
-<li>https://www.w3schools.com/Css/css_positioning.asp</li>
-<li>https://www.webdevbydoing.com/whats-the-difference-between-static-relative-absolute-and-fixed-positioning/</li>
-<li>https://developer.mozilla.org/en-US/docs/Web/CSS/position</li>
-</ul>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre>
+      </div>
+      <p><em>This example would place the element in the bottom right hand
+          corner of the screen</em></p>
+      <p>You may have noticed these position properties can allow elements to
+        be visually on top of each other on the page. There is one more
+        interesting property that can be manipulated to affect which elements
+        are on top. That property is called z-index, which dictates which order
+        the overlapping elements are in. This is done by giving the elements
+        z-index property a number value. The highest number will be on top, then
+        the next hightest down to the lowest number positioning the element on
+        the bottom.</p>
+      <p>These positioning elements create a way to make interesting page
+        designs that are not limited by the standard box sizes of the
+        elements.</p>
+      <h4 id="resources">Resources</h4>
+      <p>Here are the resources I used to learn about positioning properties.
+        Have a read as their are some valuable nuggets of information, and some
+        hands on testing of how these properties work.</p>
+      <ul>
+        <li>https://www.geeksforgeeks.org/difference-between-relative-and-absolute-position-in-css</li>
+        <li>https://www.w3schools.com/Css/css_positioning.asp</li>
+        <li>https://www.webdevbydoing.com/whats-the-difference-between-static-relative-absolute-and-fixed-positioning/
+        </li>
+        <li>https://developer.mozilla.org/en-US/docs/Web/CSS/position</li>
+      </ul>
 
-      </article> 
-    </main>
+    </article>
+  </main>
 
-    <!-- Footer -->
-    <footer class="container">
-      <small
-        >&copy; copywrite 2025 <a href="https://github.com/HonkyTonkRobot">Joel Anderson</a> •
-        <a href="/index.html" data-theme-switcher="auto" >Home</a> •
-        <a href="/pages/blog/te-houtaewa-template.html" data-theme-switcher="auto" >Te houtaewa</a>
-      </small>
-      
-    </footer>
-    <!-- ./ Footer -->
+  <!-- Footer -->
+  <footer class="container">
+    <small>&copy; copywrite 2025 <a href="https://github.com/HonkyTonkRobot">Joel Anderson</a> •
+      <a href="/index.html" data-theme-switcher="auto">Home</a>
+    </small>
+
+  </footer>
+  <!-- ./ Footer -->
 
 
-    <!-- Minimal theme switcher -->
-    <script src="/scripts/minimal-theme-switcher.js"></script>
+  <!-- Minimal theme switcher -->
+  <script src="/scripts/minimal-theme-switcher.js"></script>
 </body>
+
 </html>
