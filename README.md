@@ -33,5 +33,5 @@ The Idea of this readme.md is to give you a roadmap for finding the things you'd
 - Reading Little Schemer! (Thanks Mikey!)
 - Learning how to use GitHub and Markdown (Thanks Mikey!)
 
-[!NOTE] Will add links to these in the future
+> [!NOTE] Will add links to these in the future
 
