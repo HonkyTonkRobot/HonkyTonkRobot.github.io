@@ -1196,6 +1196,14 @@ section {
 }
 
 /**
+ * div
+ * classes for div elements
+ */
+.recent-posts {
+  padding: 50px;
+}
+
+/**
  * Grid
  * Minimal grid system with auto-layout columns
  */
@@ -2350,7 +2358,10 @@ fieldset {
   margin: 0;
   margin-bottom: var(--pico-spacing);
   padding: 0;
-  border: 0;
+  border: 2;
+  border-color: yellow;
+  border-radius: 20px;
+
 }
 
 label,
@@ -2367,6 +2378,8 @@ fieldset legend {
 }
 
 fieldset legend {
+  padding: 0 10px 0 10px;
+  margin-left: 50px;
   margin-bottom: calc(
     var(--pico-spacing) * 0.5
   );
