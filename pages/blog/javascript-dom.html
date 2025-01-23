@@ -195,19 +195,15 @@ an example. You give your money to a builder, the builder turns your
 money into a house, and then gives you the house.</p>
 <pre><code>let costPerSqMeter = 10000
 
-function builder(moneyForHouse) {
+function builderNeeds(moneyForHouse) {
 let houseSize = moneyForHouse / costPerSqMeter
   return houseSize
 }
 
-house(200000)</code></pre>
-<p>In this example we are trying to see how big of a house we can
-afford, so we are giving our <code>moneyforHouse</code> to the
-<code>builder</code> and asking them to determine the
-<code>houseSize</code> we can get with the <code>moneyForHouse</code>
-that we have, and the builder is returning to us with the
-<code>houseSize</code> we can afford.</p>
-<p>I’ve joined writing this blog post, as it has helped my solidify my
+builderNeeds(200000)</code></pre>
+<p>In this example we are trying to see how big of a house we can afford, so we are giving our <code>moneyforHouse</code> number to the <code>builder</code> because they <code>Need</code> that number to determine the <code>houseSize</code> we can afford. The builder then takes that <code>moneyForHouse</code> number and divides it by their<code>costPerMeter</code> rate. They then return to the home buyers with the <code>houseSize</code> they can afford.
+
+<p>I’ve enjoyed writing this blog post, as it has helped solidify my
 understanding of these concepts. Thanks for reading.</p>
 
       </article> 
