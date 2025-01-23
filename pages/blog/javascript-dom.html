@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark" />
+  <meta name="author" content="Joel Anderson" />
+  <meta name="dcterms.date" content="2025-01-23" />
+  <meta name="description" content="A few core concepts of JavaScript and the DOM, that we learned in Sprint 3" />
+  <title>JavaScript and the DOM</title>
+  <link href="/styles/pico.yellow.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+      <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <details class="dropdown">
+              <summary class="secondary">Blog</summary>
+              <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li>-----</li>
+                <li><a href="/pages/blog/te-houtaewa-template.html">Te Houtaewa</a></li>
+                <li><a href="/pages/blog/identity-values.html">Identity &amp; Values</a></li>
+                <li><a href="/pages/blog/html-css.html" >HTML & CSS</a></li>
+                <li><a href="/pages/blog/learning-plan.html">HTML &amp; CSS</a></li>
+                <li><a href="/pages/blog/md-syntax.html">Markdown Madness</a></li>
+                <li><a href="/pages/blog/emotional-intelligence.html">Emotional Intelligence</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <details class="dropdown">
+              <summary role="button" class="secondary">Theme</summary>
+              <ul>
+                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+        <hgroup>
+          <h2>Blog</h2>
+        </hgroup>
+      </div>
+    </header>
+    <!-- ./ Header -->
+
+    <!-- Main -->
+    <main class="container">
+        <article>
+
+          <hgroup>
+            <h1>JavaScript and the DOM</h1>
+            <hr/>
+            <p>A few core concepts of JavaScript and the DOM, that we learned in Sprint 3</p>
+            <p>2025-01-23</p>
+          </hgroup>
+
+<h2 id="how-the-sausage-is-made">How the sausage is made</h2>
+<p>Understanding how websites work can feel overwhelming so I’m going to
+use a simple analogy that does a pretty good job of explaining the
+different elements like HTML, CSS and how JavaScript interacts with
+them.</p>
+<p>First you have HTML which is like the structure of a house. It’s a
+static structure that has to be built in a certain way. You can
+customize it sure, but there are rules you have to follow like the
+“building code”. Then you have CSS which is like the paint you choose
+for the walls, and the furniture in the rooms, and the pictures you have
+on the wall. You can pick the paint color and you can arrange the
+furniture how you like. HTML and CSS are pretty much the foundation of
+any website you visit.</p>
+<p>Then comes JavaScript. Continuing with the House analogy, JavaScript
+is all of the interactivity in your home. When a light switch is
+flipped, the lights come on, when the faucet is opened water comes out,
+and when someone rings your doorbell a sound is made. JavaScript is the
+ability to manipulate the HTML and CSS. If you can imagine with me for a
+moment, if you just command your furniture to switch to a particular
+layout when you push a button, and have the walls change color at the
+same time, oh and have the radio turn on to your favorite
+playlist.That’s what JavaScript is able to do with HTML and CSS. It can
+completely transform them in an instance.</p>
+<h2 id="how-javascript-works">How JavaScript works</h2>
+<p>In JavaScript there are all kinds of concepts that make different
+things happen to a webpage. A couple of examples of these are control
+flow and loops.</p>
+<h3 id="control-flow">Control flow</h3>
+<ul>
+<li>control flow is like putting a condition on what action to perform.
+You can think of this kind of like a traffic light. If the light is red
+stop, if yellow prepare to stop, otherwise keep driving. Here’s an
+example of what it looks like in JavaScript.</li>
+</ul>
+<pre><code>let kidsAge = 16
+
+if(kidsAge &lt; 18) {
+  console.log(&quot;No entry to the bar&quot;)
+else
+  console.log(&quot;let them into the bar&quot;)</code></pre>
+<p>In this example the condition of <code>kidsAge &lt; 18</code>
+controls the flow of who gets into the bar, and who does not get into
+the bar.</p>
+<h3 id="loops">Loops</h3>
+<ul>
+<li>Loops are another example of a JavaScript concept, we can use to
+perform a task. Loops are used to perform repeated tasks. Imagine a loop
+like a teacher grading a stack of exams. There are set number of exams
+based on the number of students. The teacher needs to grade each test,
+then they need to assign a grade, and then they need to repeat the
+process with the next test. Here’s an example of what it might look like
+in JavaScript.</li>
+</ul>
+<pre><code>let numberOfTests = 5
+let testResults = [90, 50, 76, 88, 100]
+
+for (let i = 0; i &lt; numberOfTests; i++) {
+  if (testResults[i] &gt;= 60)
+    console.log(&quot;Passed&quot;)
+  else 
+    console.log(&quot;Not yet&quot;)
+}</code></pre>
+<p>In this example we have five tests and we label that quantity of
+tests <code>numberOfTests</code>, Then we have a list of test results
+and we label that exact list of results <code>testResults</code> Now we
+want to auto-magically determine if they are passing scores or not
+passing scores, and to do the we used what is called a
+<code>for loop</code>. In a for loop there are three things needed, - an
+iterator <code>i = 0</code> which is essentially just a fancy way of
+saying the number of times the loop has repeated. - Next is the
+condition <code>i &lt; numberOfTests</code> that if no longer true the
+loop stops. When <code>i</code> is no longer less than
+<code>numberOfTests</code> stop looping. - And finally after we test the
+condition and it’s still true we want to increase the value of i by 1 or
+<code>i++</code> so the first time the loop runs i = 1, and the second
+time i = 2, and so on, until <code>i</code> is equal to
+<code>numberOfTests</code> and we stop looping.</p>
+<p>Then next 4 lines of code are what we want to do each time we loop.
+I’ll break it down in plain English and then I’ll explain how it works.
+In the first loop, we are going to check if the first score in the
+<code>testResults</code> list is above 60, and if it is we are going
+mark it down as passed. However if the test is less than 60 we are going
+to mark it down as not yet passed or not yet.</p>
+<p>Ok, so now I’ll try to explain what those 4 lines are doing. The
+first line is asking if the test result in position i &gt;= 60. Remember
+position i changes every time we loop because it is being increased by 1
+with <code>i++</code>. So on the first loop I is going to pull the first
+item off the list and test if it is greater than or equal to 60. If
+that’s true, it will log the test as passed. For the first loop
+<code>i</code> is 1 which means we are testing if the first item in the
+list named <code>testResults</code>. The first item is 90, so we are
+asking if 90 &gt;= 60, and it is so we will log the test as passed.</p>
+<p>Now the loop has finished its first cycle and will run again, and
+because we added 1 to the value of <code>i</code> we will check if the
+test result in the second spot of the list named
+<code>testResults</code> is greater than or equal to 60. The value in
+the second spot is 50, so we are asking is 50 &gt;= 60, and no, it is
+not greater than 60, so we say “if” it’s not &gt;= 60 what “else” can it
+be, “Not Yet”. So for the second loop the test result is logged as Not
+yet. Then it loops again, until <code>i</code> = 5 which is the number
+of tests (<code>numberOfTests</code>) we have to check, against the
+condition <code>i &lt; numberOfTests</code> which as a reminder we keep
+running the loop until this condition is no longer true.</p>
+<h2 id="what-is-the-dom">What is the DOM?</h2>
+<p>The DOM is the interface for JavaScript to interact with HTML and
+CSS. It’s like writing a Microsoft word document. We have to push keys
+on a keyboard to get words to appear in the word document on the screen.
+Every key press triggers the action of a letter displaying in the word
+document. The DOM is the same way, ther are all of these actions the DOM
+is able to see that triggers a change in the HTML or CSS documents.</p>
+<h2 id="whats-the-difference-in-arrays-and-objects">What’s the
+difference in Arrays and Objects</h2>
+<p>An <strong>Array</strong> is a list of values, each spot in the list
+is a single value. Here’s some examples of single values:
+<code>["string value", 127, true]</code> These all represent a single
+piece of information stored in a list. <strong>Objects</strong> are like
+an Array because they are also lists, but in each spot of the list, can
+be multiple of what are called <code>key: value</code> pairs. For
+example the first item in the list is called <code>itemOne</code> and
+inside that item are details about that item like
+<code>size: large</code> or <code>cost: $20</code> these are the
+<code>key: value</code> pairs.</p>
+<h2 id="what-are-functions-and-why-are-they-useful">What are functions
+and why are they useful</h2>
+<p><strong>Functions</strong> are reusable blocks of code design to do a
+specific thing. Well that right there is one reason they are useful,
+they can be reused. A function is basically a way of saying take these
+things I’m giving you, do this to them, and them give them back. It’s
+kind of like any service you could hire. We’ll use building a house as
+an example. You give your money to a builder, the builder turns your
+money into a house, and then gives you the house.</p>
+<pre><code>let costPerSqMeter = 10000
+
+function builder(moneyForHouse) {
+let houseSize = moneyForHouse / costPerSqMeter
+  return houseSize
+}
+
+house(200000)</code></pre>
+<p>In this example we are trying to see how big of a house we can
+afford, so we are giving our <code>moneyforHouse</code> to the
+<code>builder</code> and asking them to determine the
+<code>houseSize</code> we can get with the <code>moneyForHouse</code>
+that we have, and the builder is returning to us with the
+<code>houseSize</code> we can afford.</p>
+<p>I’ve joined writing this blog post, as it has helped my solidify my
+understanding of these concepts. Thanks for reading.</p>
+
+      </article> 
+    </main>
+
+    <!-- Footer -->
+    <footer class="container">
+      <small
+        >&copy; copywrite 2025 <a href="https://github.com/HonkyTonkRobot">Joel Anderson</a> •
+        <a href="/index.html" data-theme-switcher="auto" >Home</a> •
+        <a href="/pages/blog/te-houtaewa-template.html" data-theme-switcher="auto" >Te houtaewa</a>
+      </small>
+      
+    </footer>
+    <!-- ./ Footer -->
+
+
+    <!-- Minimal theme switcher -->
+    <script src="/scripts/minimal-theme-switcher.js"></script>
+</body>
+</html>
