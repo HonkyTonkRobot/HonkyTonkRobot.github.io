@@ -15,6 +15,6 @@ One of the examples used was describing the neural networks like highways connec
 Another concept mentioned is the idea of a growth mindset. This is something I have always thought about myself, because I love learning and have always been curious. From what I understand about a growth mindset is being open to challenge and not being afraid of failure, knowing it is on the road to success will help you more easily adapt to a growth mindset.
 
 ### Incoporating into my learning plan
-Way's I will incorporate this into my learning plan, include using spaced repetition facilitated by [Ankiweb.net](https://ankiweb.net)[^1]
-[^1]: Ankiweb is an open-source spaced repetition flash card web app. It is free to use, and built by a community of volunteers.
+Way's I will incorporate this into my learning plan, include using spaced repetition facilitated by [Ankiweb.net](https://ankiweb.net).[^1] 
 
+[^1]: Ankiweb is an open-source spaced repetition flash card web app. It is free to use, and built by a community of volunteers.
