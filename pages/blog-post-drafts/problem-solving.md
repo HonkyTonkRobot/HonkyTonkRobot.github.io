@@ -10,7 +10,7 @@ date: 2024-01-29
 In the 'Gradebook Kata' exercise on problem 3, I tried several things.
 
 ### what problem-solving techniques did you use?
-I tried `for in` loops, `for` loops, `for in` loops with `for` loops inside of them, and `for` loops with an `if` statement inside it. All of these things were over though attempts at solving the problem.
+I tried `for in` loops, `for` loops, `for in` loops with `for` loops inside of them, and `for` loops with an `if` statement inside it. All of these things were over thought attempts at solving the problem.
 
 What I finally realized is it was just the same `.forEach()` method that I learned in the step before, which seems obvious now. The only difference is this one built off of the last one by using the value, and index parameters of the `.forEach()` method.
 
@@ -19,7 +19,7 @@ I was frustrated, but I kept persisting, as I wanted to learn it. I tried many o
 I realize now I should have tried using pseudocode as this might have clued my into what I was missing.
 
 ### what did you learn?
-What I learned is that When I have these trying problems, when I finally find the solution I understand what I was learning much better, which I think helps with the memory of the technique.
+What I learned is that when I have these trying problems, when I finally find the solution I understand what I was learning much better, which I think helps with the memory of the technique.
 
 I learned specifically in this problem, that the `.forEach()` method has a built in way to use an array's index to guide the loop similarly to how a for loop is typically setup.
 
@@ -27,23 +27,26 @@ I learned specifically in this problem, that the `.forEach()` method has a built
 
 ### What was the problem?
 In the 'flipflop Kata' the problem was to determine if an array of numbers was divisible by 5, 3, or both 5 and 3.
+
 ### what problem-solving techniques did you use?
 In this one I mainly used the pseudocode problem solving technique. I think this made sense as the choice as an Intuitively know that this was going to be and if, else if, else statement, from our previous exercise about conditionals in sprint-3.
+
 ### how did you feel throughout the process?
 I felt good as I knew I was on the right path, and even though it took a few attepts to getting working, I knew if I kept trying different versions of what I was doing that I'd get it.
+
 ### what did you learn?
 I learned that in an if, else if statement that you can assign the result to a variable, and then outside of the statement but still in the function return the result. I think in my previous learnings the return was within the if statement but I might be mistaken. though when googling to help my figure out what I wasn't doing correctly I saw someone else formating it this way, and I thought I'd give it a try, it worked.
 
 ## Reflect on how confident you feel using each of these problem-solving techniques/processes
 
-Pseudocode 7 out of 10
-Trying something 7 out of 10
-Rubber ducky method 4 out of 10
+- Pseudocode  - 7 out of 10
+- Trying something - 7 out of 10
+- Rubber ducky method - 4 out of 10
 - Reading error messages - 6 out of 10
-- Googling 8 out of 10
+- Googling - 8 out of 10
 - Asking your peers for help - 7 out of 10
 - Asking your coaches for help - 4 out of 10
-- Improving your process with reflection 10 out of 10
+- Improving your process with reflection - 10 out of 10
 
 Reflection is proving to be my best skill as it helps me solidify the things I am learning, and tests my ability to recall them, and if I can't it gives me a nudge to go and refresh my memory on what I learned.
 
