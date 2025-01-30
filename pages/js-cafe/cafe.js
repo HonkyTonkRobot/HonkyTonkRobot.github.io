@@ -83,7 +83,7 @@ function displayStockLevels() {
 }
 displayStockLevels()
 
-// -- BUILD CUSTOMER ORDER -- //
+// -- GENERATE CUSTOMER ORDER -- //
 
 let customer = {
   order: [],
