@@ -2,11 +2,9 @@
 
 body {
   background: white;
-  background-image: linear-gradient(
-      90deg,
+  background-image: linear-gradient(90deg,
       rgba(208, 232, 234, 0.5) 50%,
-      transparent 0
-    ),
+      transparent 0),
     linear-gradient(rgba(208, 232, 234, 0.5) 50%, transparent 0);
   background-size: 100px 100px;
   font-family: 'Fira Code', monospace;
@@ -22,31 +20,38 @@ h1 {
   font-size: 4vw;
   font-weight: 700;
 }
+
 h2 {
   font-size: 2.5vw;
   font-weight: 700;
 }
+
 h3 {
   font-size: 2vw;
   font-weight: 400;
 }
+
 #tickets-h3 {
   margin-top: 10px;
   margin-bottom: auto;
 }
+
 .display-tickets {
   display: flex;
   flex-wrap: wrap;
 }
+
 #all-tickets {
   min-height: 160px;
 }
+
 #tickets {
   position: relative;
   height: auto;
   margin: -40px auto 20px auto;
-  z-index: -1;
+  z-index: 0;
 }
+
 .ticket {
   background-color: rgba(255, 255, 255, 0.65);
   border: 3px solid black;
@@ -60,6 +65,7 @@ h3 {
   backdrop-filter: blur(11.7px);
   -webkit-backdrop-filter: blur(11.7px);
 }
+
 .ticket-holder {
   background-color: rgba(255, 255, 255, 0.65);
   border: 3px solid black;
@@ -72,8 +78,9 @@ h3 {
   margin-bottom: 20px;
   backdrop-filter: blur(11.7px);
   -webkit-backdrop-filter: blur(11.7px);
-  z-index: 0;
+  z-index: -1;
 }
+
 .ticket-holder-back {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.65);
@@ -90,6 +97,7 @@ h3 {
   -webkit-backdrop-filter: blur(11.7px);
   z-index: -2;
 }
+
 .container {
   background-color: rgba(255, 255, 255, 0.65);
   border: 3px solid black;

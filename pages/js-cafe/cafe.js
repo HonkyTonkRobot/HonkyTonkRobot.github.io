@@ -114,6 +114,8 @@ function generateCustomerOrder() {
   printToTicket = formatForTicket
   customer.order = newOrder
   tickets(ticketCounter)
+  customerOrderAlert()
+  processOrder()
 }
 
 // -- PRINT TICKET -- //
@@ -134,16 +136,22 @@ function tickets(makeTicket) {
   orderButton.id = 'ticket-' + ticketCounter
   orderButton.className = 'button'
   orderButton.textContent = 'Done'
+  orderButton.style = 'z-index: 0;'
+  orderButton.setAttribute('onclick', 'destroyTicket(this)')
 
   ticketInfoHolder.appendChild(ticketInfo)
   ticketInfoHolder.appendChild(orderButton)
+
+  orderButton.addEventListener('click', destroyTicket)
 }
 
 // -- DESTROY TICKET -- //
-// TODO: identify the ticket the button is on
-// TODO: create function that deletes the ticket
-// let destroyTicket = document.getElementById(orderButton.id)
-// destroyTicket.addEventListener('click', () => {})
+function destroyTicket(buttonClick) {
+  let buttonId = buttonClick.id
+  let parentElement = this.parentNode
+  parentElement.parentNode.removeChild(parentElement)
+  console.log(buttonId)
+}
 
 // -- TRANSACTIONS -- //
 let cash = 0
@@ -152,6 +160,13 @@ function displayCash() {
   document.getElementById('cash').innerHTML = 'Cash In Till: ' + cash
 }
 displayCash()
+
+function customerOrderAlert() {
+  //get onclick from take order
+  //create alert with customer order.
+  //get customer order to print to alert
+  alert("Can I order, " + customer.order)
+}
 
 function processOrder() {
   // get item names from order
@@ -176,7 +191,7 @@ function processOrder() {
   displayCash()
   displayStockLevels()
 }
-document.getElementById('checkout').onclick = processOrder
+// document.getElementById('checkout').onclick = processOrder
 
 // -- TICKET NUMBERING -- //
 

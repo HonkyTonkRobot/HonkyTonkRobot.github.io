@@ -26,23 +26,23 @@
 
 // Building blocks plan
 
-// build an object to hold  all of the items that will be displayed on the menu
+// [x] build an object to hold  all of the items that will be displayed on the menu
 
-// build menu - Create a function to grab keys and values from products object, and build HTML elements to visualize the menu
+// [x]build menu - Create a function to grab keys and values from products object, and build HTML elements to visualize the menu
 
-// Build Random number function to generate a min/max order size, create random order fulment responses.
+// [x] Build Random number function to generate a min/max order size, create random order fulment responses.
 
-// Build a function to create a random order size using random number generator
+// [x] Build a function to create a random order size using random number generator
 
-// Build a function to random pick products from the products object based on the order size
+// [x] Build a function to random pick products from the products object based on the order size
 
-// Build a button onclick event Asking the customer what they would like, and then generates an alert with the order.
+// [x] Build a button onclick event Asking the customer what they would like, and then generates an alert with the order.
 
-// build a "checkout button' onclick event for processing the order into money in the till, and a ticket at the espresso machine, and a stock update.
+// **Removed from requirements** As the alert "ok" button achieves this. -- build a "checkout button' onclick event for processing the order into money in the till, and a ticket at the espresso machine, and a stock update.
 
-// function for grabbing order information and building a ticket with HTML elements. including a time from order, start making button, with countdown timers on each item.
+// [x] function for grabbing order information and building a ticket with HTML elements. including a time from order, start making button, with countdown timers on each item.
 
-// build time counting utility
+// [x] build time counting utility
 
 // build function for generating time from order counters, that when a certain time is reached if order is not complete an alert is printed with a customer complaint.
 
