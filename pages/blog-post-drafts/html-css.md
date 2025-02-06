@@ -1,25 +1,23 @@
 ---
 title: "What are the differences between relative, absolute, and fixed positioning?"
 author: "Joel Anderson"
-description: "In an HTML document there are elements, think of elements like the building blocks of a web page. These elements get stacked on top of each other, and each element has a size or an amount of space they take up on the webpage."
+description: "In an HTML document, elements act as the building blocks of a web page, stacking on top of each other and occupying space."
 ---
 
-Imagine with me for a minute these HTML elements are bricks for building a house, and you have a pile of bricks that you want to stack up. You place your first brick on the ground, then you place the second brick on top of the first brick. This brick is not touching the ground it is the height of the first brick away from the ground. Each brick you stack gets further from the ground as it is offset by the height of all the bricks below added together.
+Think of HTML elements as bricks in a house. You stack the first brick on the ground, then place the second on top, creating a height offset. Each subsequent brick adds to the height, just like HTML elements stack and occupy space on a webpage.
 
-OK, so elements are just like the bricks When they get stacked, the first element takes it's space on the page, then when the next element gets stacked on, it takes its space, etc. 
+##### How do relative, absolute, and fixed positioning in CSS affect these stacked elements?
 
-##### So how do relative, absolute, and fixed positioning in CSS affect these stacked elements in HTML?
-
-When an html element gets one of these CSS positioning properties associated with it, it makes it so the element is no longer bound by the fundamentals of the stack. They can now move around independent of the stack.
+When an HTML element is assigned one of these CSS positioning properties, it can move independently of the stack.
 
 ### Relative Position
 
-The relative position property moves the element from it's stacked position freely in any direction, without affecting the position of the other elements in the stack. Essentially the normal space that element would be holding is still reserved, but the element has move from its normal space. Here's what the syntax of the relative position looks like.
+The relative position property allows an element to move freely from its stacked position without affecting others. The space it would normally occupy is still reserved. Here's the syntax:
 
 ```html
 <style>
 #1 {
-    Position: Relative;
+    position: relative;
     left: 100px;
 }
 </style>
@@ -27,21 +25,21 @@ The relative position property moves the element from it's stacked position free
     <div id="1">
         <h1>Has Relative Position</h1>
     </div>
-    <div id=2>
+    <div id="2">
         <h1>Has no position property</h1>
     </div>
 </html>
 ```
-_In this example the div with an id=1 is moved 100px to the right with the left property, while the div with an id=2 has not moved._ 
+_The div with id=1 moves 100px to the right, while div id=2 remains in place._
 
 ### Absolute Position
 
-The absolute position property moves the element a fixed distance relative to the position of the element it is inside (also know as the parent element) This means if the parent element moves when displayed on different sized screens, the element with the absolute position (also know as the child element) will still be the same exact set distance from the edge of it's parent element. Here's what the syntax of the absolute position looks like.
+The absolute position property moves an element a fixed distance relative to its parent element. If the parent moves, the child remains the same distance from it. Here's the syntax:
 
 ```html
 <style>
 #2 {
-    Position: absolute;
+    position: absolute;
     top: 10px;
     left: 50px;
 }
@@ -55,40 +53,39 @@ The absolute position property moves the element a fixed distance relative to th
     </div>
 </html>
 ```
-_In this example the child div with an id=2 would be place 10px from the top and 50px from the left of the parent div with an id=1_
+_The child div with id=2 is positioned 10px from the top and 50px from the left of its parent div._
 
 ### Fixed Position
 
-The fixed position property removes the element from the stack, so it actually takes up no space at all in the stack. It's position is now relative to the screen. and it's position will stay in the same place as the page is scrolled. Here's what the syntax of the fixed position looks like.
+The fixed position property removes an element from the stack, meaning it takes up no space and is positioned relative to the screen. It remains in place while scrolling. Here's the syntax:
 
 ```html
 <style>
 #1 {
-    Position: fixed;
+    position: fixed;
     bottom: 10px;
     right: 10px;
 }
 </style>
 <html>
-    <div id="Back to top buttom">
+    <div id="Back to top button">
         <h1>Has fixed Position</h1>
     </div>
-    <div id=2>
+    <div id="2">
         <h1>Has no position property</h1>
     </div>
 </html>
 ```
-_This example would place the element in the bottom right hand corner of the screen_
+_This example places the element in the bottom right corner of the screen._
 
-You may have noticed these position properties can allow elements to be visually on top of each other on the page. There is one more interesting property that can be manipulated to affect which elements are on top. That property is called z-index, which dictates which order the overlapping elements are in. This is done by giving the elements z-index property a number value. The highest number will be on top, then the next hightest down to the lowest number positioning the element on the bottom.
+These positioning properties allow elements to overlap, which can be controlled using the z-index property. The z-index determines the stacking order, with higher values appearing on top.
 
-These positioning elements create a way to make interesting page designs that are not limited by the standard box sizes of the elements.
+These positioning techniques enable creative page designs beyond standard element sizes.
 
 #### Resources
-Here are the resources I used to learn about positioning properties. Have a read as their are some valuable nuggets of information, and some hands on testing of how these properties work.
+Here are some valuable resources for learning about positioning properties:
 
-- https://www.geeksforgeeks.org/difference-between-relative-and-absolute-position-in-css
-- https://www.w3schools.com/Css/css_positioning.asp
-- https://www.webdevbydoing.com/whats-the-difference-between-static-relative-absolute-and-fixed-positioning/
-- https://developer.mozilla.org/en-US/docs/Web/CSS/position
-
+- [Geeks for Geeks](https://www.geeksforgeeks.org/difference-between-relative-and-absolute-position-in-css)
+- [w3schools](https://www.w3schools.com/Css/css_positioning.asp)
+- [Web Dev By Doing](https://www.webdevbydoing.com/whats-the-difference-between-static-relative-absolute-and-fixed-positioning/)
+- [Mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
