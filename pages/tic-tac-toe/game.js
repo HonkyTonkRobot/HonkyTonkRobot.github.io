@@ -1,25 +1,26 @@
 window.onload = generateGameBoard
 //--  REFACTOR CODE --//
-
-// TODO: figure out how to get the event listener to work on dynamically generated game board.
+// Concise, but readable
 
 //-- GLOBAL VARIABLES --//
 let tableContainer = document.getElementById('gameboard')
+let boardSize = []
 let cells = []
 let whichPlayersTurn = (Math.random() >= 0.5)
 let turnCount = 0
 let gameIsOver = false
 let scores = { "X": 0, "0": 0, "S": 0, }
-let boardSize = []
 
+//-- BOARD SIZE FORM --//
 form = document.getElementById('boardSize')
 function submitSize(update) {
   updateGameBoard()
+  //prevent page reload
   update.preventDefault()
 }
 form.addEventListener('submit', submitSize)
 
-
+//-- CONFIRM GAME BOARD UPDATE --//
 function updateGameBoard() {
 
   let updateConfirm = confirm('game board is being updated!\n\nCurrent game progress will be lost.')
@@ -29,15 +30,15 @@ function updateGameBoard() {
   }
 }
 
+//-- GENERATE NEW GAME BOARD --//
 function generateGameBoard() {
 
   boardSize = document.getElementById('board-size').value
-  //-- GENERATE GAME BOARD --//
   let table = document.createElement('table')
   table.id = 'game-board'
   let tbody = document.createElement('tbody')
 
-  // loop to build arrays for rows and diagonals
+  // Loop to build gameboard squares or "cells"
   for (let i = 0; i < boardSize; i++) {
     let row = document.createElement('tr')
 
@@ -50,7 +51,7 @@ function generateGameBoard() {
     tbody.appendChild(row)
   }
 
-  //-- EVENT LISTENERS --//
+  //-- ADD EVENT LISTENER TO CELLS --//
   for (i = 0; i < cells.length; i++) {
     cells[i].onclick = playerPlays
   }
@@ -66,20 +67,23 @@ function playerPlays(e) {
   let clickedCell = e.target
   // set player turn
   let symbol = (whichPlayersTurn == true) ? "0" : "X"
-  // mark current players move
+  // Check cell is empty, then mark current players move
   clickedCell.innerHTML == ""
     ? clickedCell.innerHTML = symbol
     : (alert('Square already played, choose another cell'), whichPlayersTurn = !whichPlayersTurn)
 
+  // Check if move created a winning combination
   checkForWin(symbol)
 
+  // Check if game is over
   if (gameIsOver === true) {
     // Inform players who won, update scoreboard and reset game board
-    document.getElementById('subtitle').innerHTML = symbol + " is the winner"
+    document.getElementById('game-status').innerHTML = symbol + " is the winner"
+    // setTimeout so on page game-status updates, before alert, and board reset.
     setTimeout(() => {
       alert(symbol + " is the winner \n\n Do you want to start a new game?")
       document.getElementsByTagName("TD").innerHTML = resetBoard()
-      document.getElementById('subtitle').innerHTML = whosTurn + " Starts"
+      document.getElementById('game-status').innerHTML = whosTurn + " Starts"
     }, 1000)
     scores[symbol] += 1
     document.getElementById(symbol).innerHTML = scores[symbol]
@@ -89,7 +93,6 @@ function playerPlays(e) {
   } else {
 
     // Check for Stalemate
-    turnCount += 1
     if (turnCount > (cells.length - 1)) {
       setTimeout(() => {
         alert('Stalemate')
@@ -103,24 +106,26 @@ function playerPlays(e) {
       turnCount = 0
     }
 
-    // No winner, No stalement, switch players
+    // No winner, No stalemate, switch players
     whichPlayersTurn = !whichPlayersTurn
     whosTurn = (whichPlayersTurn == true) ? "0" : "X"
-    document.getElementById('subtitle').innerHTML = whosTurn + "'s turn"
+    document.getElementById('game-status').innerHTML = whosTurn + "'s turn"
+    turnCount += 1
   }
 }
 
+//-- CHECK FOR WINNING COMBINATION --//
 function checkForWin() {
-  // determines if there are 3 "X"s or "0"s horizontally, vertically, or diagonally
 
+  // determines if there all "X"s or "0"s horizontally, vertically, or diagonally
   let table = document.getElementById('game-board')
 
-  // variables to save possible winning arrays
+  // save possible winning arrays
   let diagonalLeft = []
   let diagonalRight = []
   let vertical = []
   let horizontal = []
-  // variable to combine all possible winners into single array
+  // Combine all possible winners into array of arrays
   let possibleWinners = []
 
   // loop to build arrays for rows and diagonals
@@ -140,12 +145,12 @@ function checkForWin() {
     diagonalRight.push(horizontalRows[i])
 
   }
-  // loop to build arrays for columns or vertical
+  // loop to build arrays for columns or "vertical"
   for (let i = 0; i < table.rows.length; i++) {
     vertical[i] = horizontal.map(innerArray => innerArray[i])
   }
 
-  // Add all of the arrays into a single variable
+  // Add all of the arrays to possibleWinners
   possibleWinners = [...horizontal, ...vertical, diagonalLeft, diagonalRight]
 
   // Check if there's a winner. All it does is determine if each array is full of the same value (excluding empty values) and returns true or false to end the game.
@@ -155,7 +160,8 @@ function checkForWin() {
     }
   }
 }
-// -- Reset Game board --//
+
+// -- RESET GAME BOARD --//
 function resetBoard() {
   for (i = 0; i < cells.length; i++) {
     cells[i].innerHTML = ""
