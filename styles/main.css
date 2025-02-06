@@ -122,25 +122,25 @@ h2 {
 }
 
 h3 {
-  --pico-font-size: 1.5rem;
+  --pico-font-size: 1.25rem;
   --pico-line-height: 1.175;
   --pico-typography-spacing-top: 2.25rem;
 }
 
 h4 {
-  --pico-font-size: 1.25rem;
+  --pico-font-size: 1.125rem;
   --pico-line-height: 1.2;
   --pico-typography-spacing-top: 1.874rem;
 }
 
 h5 {
-  --pico-font-size: 1.125rem;
+  --pico-font-size: 1rem;
   --pico-line-height: 1.225;
   --pico-typography-spacing-top: 1.6875rem;
 }
 
 h6 {
-  --pico-font-size: 1rem;
+  --pico-font-size: 0.875rem;
   --pico-line-height: 1.25;
   --pico-typography-spacing-top: 1.5rem;
 }
