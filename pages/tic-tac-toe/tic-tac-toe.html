@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <section>
+        <h1>Tic-Tac-Toe</h1>
+        <h2 id="subtitle">Click on a cell to start!</h2>
+        <div>
+            <form id="boardSize">
+                <label>Board Size:</lable>
+                    <input id="board-size" type="number" min="1" value="3" max="9" step="1" />
+                    <input id="update-board" type="submit" value="Update" />
+            </form>
+        </div>
+        <br>
+        <div id="gameboard">
+        </div>
+        <div id="scoreboard">
+            <h2 id="score-board">Score Board</h2>
+            <h3><strong>X's: </strong><strong id="X"></strong></h3>
+            <h3><strong>0's: </strong><strong id="0"></strong></h3>
+            <h3><strong>Stalemate: </strong><strong id="S"></strong></h3>
+        </div>
+        <script src="game.js"></script>
+    </section>
+</body>
+
+</html>

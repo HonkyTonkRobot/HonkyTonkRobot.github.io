@@ -1,0 +1,78 @@
+/* Game board and text not responsive yet*/
+
+body {
+    background-color: white;
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    margin-top: 40px;
+}
+
+table {
+    margin-right: center;
+    margin-left: center;
+    margin: 0 auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+#scoreboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#scoreboard>* {
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2vw;
+    color: black;
+}
+
+td {
+    width: min(30vw, 18vh);
+    height: min(30vw, 18vh);
+    text-align: center;
+    font-size: 300%;
+    border: black solid 3px;
+    color: black;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2vw;
+    color: #4c2c92;
+}
+
+h3 {
+    text-align: center;
+    font-size: 2vw;
+    color: black;
+}
+
+@media screen and (max-width: 425px) {
+    #scoreboard {
+        display: block;
+        justify-content: center;
+    }
+
+    #scoreboard>* {
+        padding: 0.125rem;
+    }
+
+    h1 {
+        font-size: 6vw;
+    }
+
+    h2 {
+        font-size: 5vw;
+    }
+
+    h3 {
+        font-size: 4vw;
+    }
+}
