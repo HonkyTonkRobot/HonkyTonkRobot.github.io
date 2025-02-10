@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/styleguide.css">
+</head>
+
+<body>
+  <header class="style-guide-container">
+    <strong>Style Guide: Using Pico.css</strong>
+    <nav>
+      <li><a href="#" class="secondary">Atoms</a></li>
+      <li><a href="#" class="secondary">Molecules</a></li>
+      <li><a href="#" class="secondary">Organisms</a></li>
+      <li>
+        <details class="dropdown">
+          <summary>
+            Templates
+          </summary>
+          <ul dir="rtl">
+            <li><a Aria-current data-discover="true" href="#"><span>Test 1</span></a></li>
+            <li><a href="#">test 2</a></li>
+        </details>
+      </li>
+      <li>
+        <details class="dropdown">
+          <summary role="button" class="outline contrast">
+            pages
+          </summary>
+          <ul dir="rtl">
+            <li><a aria-current="test 1" data-discover="true" href="#"><span>Test 1</span></a></li>
+            <li><a href="#">test 2</a></li>
+        </details>
+      </li>
+    </nav>
+  </header>
+
+  <main class="style-guide-container">
+
+    <!-- Headings -->
+
+    <section>
+      <article>
+        <header>
+          <h4><em>Headings</em></h4>
+        </header>
+        <div class="grid">
+          <div>
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+            <p><em>- Include class headings for non-semantic styling</em></p>
+          </div>
+          <div>
+            <p>semantic</p>
+            <p>semantic</p>
+            <p>semantic</p>
+            <p>semantic</p>
+            <p>semantic</p>
+            <p>semantic</p>
+          </div>
+        </div>
+
+        <!-- Heading Group -->
+
+        <footer>
+          <h5><em>Heading group</em></h5>
+          <hr>
+          <hgroup>
+            <h2>Heading Group Title</h2>
+            <p>this is a muted last child in the &lt;hgroup&gt; element</p>
+          </hgroup>
+        </footer>
+      </article>
+    </section>
+
+    <!-- Text -->
+
+    <section>
+      <article>
+        <header>
+          <h4><em>Typography</em></h4>
+        </header>
+        <div>
+          <h5>Paragraph</h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempus vel
+            nisl eget facilisis. Phasellus consectetur bibendum nulla. Vivamus euismod id
+            orci dictum facilisis. Ut eget nisi at orci rhoncus mollis. Aenean pulvinar
+            massa a luctus molestie. Donec tortor libero, pharetra ut urna sit amet, iaculis
+            dignissim sem. Duis id
+          </p>
+          <h5>Small text</h5>
+          <small>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempus vel
+            nisl eget facilisis. Phasellus consectetur bibendum nulla. Vivamus euismod id
+            orci dictum facilisis. Ut eget nisi at orci rhoncus mollis. Aenean pulvinar
+            massa a luctus molestie. Donec tortor libero, pharetra ut urna sit amet, iaculis
+            dignissim sem. Duis id
+          </small>
+        </div>
+        <br>
+        <h5>Typography</h5>
+        <div class="overflow-auto">
+          <table class="striped">
+            <thead>
+              <tr>
+                <th>breakpoint</th>
+                <th>xs</th>
+                <th>sm</th>
+                <th>md</th>
+                <th>lg</th>
+                <th>xl</th>
+                <th>xxl</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Base</th>
+                <td><span data-tooltip="100% * 1rem * 16px" data-placement="top">16<small>px</small></span></td>
+                <td><span data-tooltip="106.25% * 1rem * 17px" data-placement="top">17<small>px</small></span></td>
+                <td><span data-tooltip="112.5% * 1rem * 18px" data-placement="top">18<small>px</small></span></td>
+                <td><span data-tooltip="118.75% * 1rem * 19px" data-placement="top">19<small>px</small></span></td>
+                <td><span data-tooltip="125% * 1rem * 20px" data-placement="top">20<small>px</small></span></td>
+                <td><span data-tooltip="131.25% * 1rem * 21px" data-placement="top">21<small>px</small></span></td>
+              </tr>
+              <tr>
+                <th><code>&lt;h1&gt;</code></th>
+                <td><span data-tooltip="100% * 2rem * 16px" data-placement="top">32<small>px</small></span></td>
+                <td><span data-tooltip="106.25% * 2rem * 17px" data-placement="top">34<small>px</small></span></td>
+                <td><span data-tooltip="112.5% * 2rem * 18px" data-placement="top">36<small>px</small></span></td>
+                <td><span data-tooltip="118.75% * 2rem * 19px" data-placement="top">38<small>px</small></span></td>
+                <td><span data-tooltip="125% * 2rem * 20px" data-placement="top">40<small>px</small></span></td>
+                <td><span data-tooltip="131.25% * 2rem * 21px" data-placement="top">42<small>px</small></span></td>
+              </tr>
+              <tr>
+                <th><code>&lt;h2&gt;</code></th>
+                <td><span data-tooltip="100% * 1.75rem * 16px" data-placement="top">24<small>px</small></span></td>
+                <td><span data-tooltip="106.25% * 1.75rem * 16px" data-placement="top">25.5<small>px</small></span></td>
+                <td><span data-tooltip="112.5% * 1.75rem * 16px" data-placement="top">27<small>px</small></span></td>
+                <td><span data-tooltip="118.75% * 1.75rem * 16px" data-placement="top">28.5<small>px</small></span></td>
+                <td><span data-tooltip="125% * 1.75rem * 16px" data-placement="top">30<small>px</small></span></td>
+                <td><span data-tooltip="131.25% * 1.75rem * 16px" data-placement="top">31.5<small>px</small></span></td>
+              </tr>
+              <tr>
+                <th><code>&lt;h3&gt;</code></th>
+                <td><span data-tooltip="100% * 1.5rem * 16px" data-placement="top">24<small>px</small></span></td>
+                <td><span data-tooltip="106.25% * 1.5rem * 16px" data-placement="top">25.5<small>px</small></span></td>
+                <td><span data-tooltip="112.5% * 1.5rem * 16px" data-placement="top">27<small>px</small></span></td>
+                <td><span data-tooltip="118.75% * 1.5rem * 16px" data-placement="top">28.5<small>px</small></span></td>
+                <td><span data-tooltip="125% * 1.5rem * 16px" data-placement="top">30<small>px</small></span></td>
+                <td><span data-tooltip="131.25% * 1.5rem * 16px" data-placement="top">31.5<small>px</small></td>
+              </tr>
+              <tr>
+                <th><code>&lt;h4&gt;</code></th>
+                <td><span data-tooltip="100% * 1.25rem * 16px" data-placement="top">20<small>px</small></span></td>
+                <td><span data-tooltip="106.25% * 1.25rem * 16px" data-placement="top">21.25<small>px</small></span>
+                </td>
+                <td><span data-tooltip="112.5% * 1.25rem * 16px" data-placement="top">22.5<small>px</small></span></td>
+                <td><span data-tooltip="118.75% * 1.25rem * 16px" data-placement="top">23.75<small>px</small></span>
+                </td>
+                <td><span data-tooltip="125% * 1.25rem * 16px" data-placement="top">25<small>px</small></span>
+                </td>
+                <td><span data-tooltip="131.25% * 1.25rem * 16px" data-placement="top">26.25<small>px</small></span>
+                </td>
+              </tr>
+              <tr>
+                <th><code>&lt;h5&gt;</code></th>
+                <td><span data-tooltip="100% * 1.125rem * 16px" data-placement="top">18<small>px</small></span></td>
+                <td><span data-tooltip="106.25% * 1.125rem * 16px" data-placement="top">19.125<small>px</small></span>
+                </td>
+                <td><span data-tooltip="112.5% * 1.125rem * 16px" data-placement="top">20.25<small>px</small></span>
+                </td>
+                <td><span data-tooltip="118.75% * 1.125rem * 16px" data-placement="top">21.375<small>px</small></span>
+                </td>
+                <td><span data-tooltip="125% * 1.125rem * 16px" data-placement="top">22.5<small>px</small></span>
+                </td>
+                <td><span data-tooltip="131.25% * 1.125rem * 16px" data-placement="top">23.625<small>px</small></span>
+                </td>
+              </tr>
+              <tr>
+                <th><code>&lt;h6&gt;</code></th>
+                <td><span data-tooltip="100% * 1rem * 16px" data-placement="top">16<small>px</small></span></td>
+                <td><span data-tooltip="106.25% * 1rem * 16px" data-placement="top">17<small>px</small></span></td>
+                <td><span data-tooltip="112.5% * 1rem * 16px" data-placement="top">18<small>px</small></span></td>
+                <td><span data-tooltip="118.75% * 1rem * 16px" data-placement="top">19<small>px</small></span></td>
+                <td><span data-tooltip="125% * 1rem * 16px" data-placement="top">20<small>px</small></span>
+                </td>
+                <td><span data-tooltip="131.25% * 1.125rem * 16px" data-placement="top">21<small>px</small></span></td>
+              </tr>
+              <tr>
+                <th><code>&lt;small&gt;</code></th>
+                <td><span data-tooltip="100% * .875rem * 16px" data-placement="top">14<small>px</small></span></td>
+                <td><span data-tooltip="106.25% * .875rem * 16px" data-placement="top">14.875<small>px</small></span>
+                </td>
+                <td><span data-tooltip="112.5% * .875rem * 16px" data-placement="top">15.75<small>px</small></span></td>
+                <td><span data-tooltip="118.75% * .875rem * 16px" data-placement="top">16.625<small>px</small></span>
+                </td>
+                <td><span data-tooltip="125% * .875rem * 16px" data-placement="top">17.5<small>px</small></span>
+                </td>
+                <td><span data-tooltip="131.25% * 1.125rem * 16px" data-placement="top">18.375<small>px</small></span>
+                </td>
+              </tr>
+            </tbody>
+            </thead>
+          </table>
+        </div>
+        <br>
+        <h5>Inline text elements</h5>
+        <div class="grid">
+          <div>
+            <p><abbr>Abbr.</abbr><code>abbr</code></p>
+            <p> <b>Bold</b><code>b</code></p>
+            <p> <i>italic</i><code>i</code></p>
+            <p> <del>Deleted</del><code>del</code></p>
+            <p> <ins>inserted</ins><code>Inserted</code></p>
+            <p> <kbd>Ctrl + S</kbd><code>kbd</code></p>
+          </div>
+          <div>
+            <p> <mark>Highlighted</mark><code>mark</code></p>
+            <p> <s>Strikethrough</s><code>s</code></p>
+            <p> <small>Small</small><code>small</code></p>
+            <p>Text<sub>Sub</sub><code>sub</code></p>
+            <p>Text<sup>Sub</sup><code>sup</code></p>
+            <u>Underline</u><code>u</code>
+          </div>
+        </div>
+        <h5>Block Quote</h5>
+        <blockquote>
+          “Design is a funny word. Some people think
+          design means how it looks. But of course, if
+          you dig deeper, it's really how it works.”
+          <footer>
+            <cite>— Steve Jobs</cite>
+          </footer>
+        </blockquote>
+
+      </article>
+    </section>
+
+    <!-- Horizontal rule -->
+
+    <section>
+      <article>
+        <header>
+          <h4><em>Horizontal rule</em></h4>
+        </header>
+        <p>Paragraph before the horizontal line.</p>
+        <hr />
+        <p>Paragraph after the horizontal line.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="style-guide-container">
+    <nav>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+/*////////////////////////
+// style guide classes //
+//////////////////////*/
+
+
+/**
+ * Style guide Container
+ */
+.style-guide-container,
+.style-guide-container-fluid {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--pico-spacing);
+  padding-left: var(--pico-spacing);
+}
+
+@media (min-width: 576px) {
+  .style-guide-container {
+    max-width: 510px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .style-guide-container {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .style-guide-container {
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .style-guide-container {
+    max-width: 1000px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .style-guide-container {
+    max-width: 1250px;
+  }
+}
