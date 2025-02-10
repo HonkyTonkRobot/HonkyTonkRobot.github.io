@@ -5,53 +5,77 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <nav>
-        <details class="dropdown">
-            <summary class="secondary">Home</summary>
+    <header class="container">
+        <nav>
             <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li>-----</li>
-                <li><a href="/pages/blog/te-houtaewa-template.html">Te Houtaewa</a></li>
-                <li><a href="/pages/blog/identity-values.html">Identity &amp; Values</a></li>
-                <li><a href="/pages/blog/html-css.html">HTML &amp; CSS</a></li>
-                <li><a href="/pages/blog/learning-plan.html">Learning Plan</a></li>
-                <li><a href="/pages/blog/md-syntax.html">Markdown Madness</a></li>
-                <li><a href="/pages/blog/emotional-intelligence.html">Emotional Intelligence</a></li>
-                <li><a href="/pages/blog/javascript-dom.html">JavaScript and the DOM</a></li>
-                <li><a href="/pages/blog/neuroplasticity.html">Neuroplasticity</a></li>
-                <li><a href="/pages/blog/te-whare-tapa-wha.html">Te Whare Tapa wha</a></li>
-                <li><a href="/pages/blog/problem-solving.html">Problem Solving</a></li>
-                <li>-Project----</li>
-                <li><a href="/pages/js-cafe/javascript-cafe.html">JavaScript Cafe</a></li>
-                <li><a href="/pages/tic-tac-toe/tic-tac-toe.html">Tic-Tac-Toe</a></li>
+                <li>
+                    <details class="dropdown">
+                        <summary class="secondary">Home</summary>
+                        <ul>
+                            <li><a href="/index.html">Home</a></li>
+                            <li>-----</li>
+                            <li><a href="/pages/blog/te-houtaewa-template.html">Te Houtaewa</a></li>
+                            <li><a href="/pages/blog/identity-values.html">Identity &amp; Values</a></li>
+                            <li><a href="/pages/blog/html-css.html">HTML &amp; CSS</a></li>
+                            <li><a href="/pages/blog/learning-plan.html">Learning Plan</a></li>
+                            <li><a href="/pages/blog/md-syntax.html">Markdown Madness</a></li>
+                            <li><a href="/pages/blog/emotional-intelligence.html">Emotional Intelligence</a></li>
+                            <li><a href="/pages/blog/javascript-dom.html">JavaScript and the DOM</a></li>
+                            <li><a href="/pages/blog/neuroplasticity.html">Neuroplasticity</a></li>
+                            <li><a href="/pages/blog/te-whare-tapa-wha.html">Te Whare Tapa wha</a></li>
+                            <li><a href="/pages/blog/problem-solving.html">Problem Solving</a></li>
+                            <li>-Project----</li>
+                            <li><a href="/pages/js-cafe/javascript-cafe.html">JavaScript Cafe</a></li>
+                            <li><a href="/pages/tic-tac-toe/tic-tac-toe.html">Tic-Tac-Toe</a></li>
+                        </ul>
+                    </details>
+                </li>
             </ul>
-        </details>
-    </nav>
-    <section>
-        <h1>Tic-Tac-Toe</h1>
-        <h2 id="game-status">Click on a cell to start!</h2>
-        <div>
-            <form id="boardSize">
-                <label>Board Size:</lable>
+            <ul>
+                <li>
+                    <details class="dropdown">
+                        <summary class="secondary">Theme</summary>
+                        <ul>
+                            <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                            <li><a href="#" data-theme-switcher="light">Light</a></li>
+                            <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section>
+            <h1>Tic-Tac-Toe</h1>
+            <h2 id="game-status">Click on a cell to start!</h2>
+            <div>
+                <form id="boardSize">
+                    <label>Board Size:</label>
                     <input id="board-size" type="number" min="1" value="3" max="9" step="1" />
                     <input id="update-board" type="submit" value="Update" />
-            </form>
-        </div>
-        <br>
-        <div id="gameboard">
-        </div>
-        <div id="scoreboard">
-            <h2 id="score-board">Score Board</h2>
-            <h3><strong>X's: </strong><strong id="X"></strong></h3>
-            <h3><strong>0's: </strong><strong id="0"></strong></h3>
-            <h3><strong>Stalemate: </strong><strong id="S"></strong></h3>
-        </div>
-        <script src="game.js"></script>
-    </section>
+                </form>
+            </div>
+            <br>
+            <div id="gameboard" class="table-container">
+            </div>
+            <div id="scoreboard">
+                <h2 id="score-board">Score Board</h2>
+                <h3><strong>X's: </strong><strong id="X"></strong></h3>
+                <h3><strong>0's: </strong><strong id="0"></strong></h3>
+                <h3><strong>Stalemate: </strong><strong id="S"></strong></h3>
+            </div>
+            <script src="game.js"></script>
+        </section>
+    </main>
+
+    <!-- Minimal theme switcher -->
+    <script src="/scripts/minimal-theme-switcher.js"></script>
 </body>
 
 </html>
