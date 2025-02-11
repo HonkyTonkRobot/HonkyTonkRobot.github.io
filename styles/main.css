@@ -387,7 +387,7 @@ details summary[role=button]:not(.outline)::after {
   --pico-card-background-color: var(--pico-background-color);
   --pico-card-border-color: var(--pico-muted-border-color);
   --pico-card-box-shadow: var(--pico-box-shadow);
-  --pico-card-sectioning-background-color: #fbfcfc;
+  --pico-card-sectioning-background-color: #beb8a7;
   --pico-dropdown-background-color: #fff;
   --pico-dropdown-border-color: #eff1f4;
   --pico-dropdown-box-shadow: var(--pico-box-shadow);
@@ -2175,8 +2175,8 @@ article>header {
   margin-top: calc(var(--pico-block-spacing-vertical) * -1);
   margin-bottom: var(--pico-block-spacing-vertical);
   border-bottom: var(--pico-border-width) solid var(--pico-card-border-color);
-  border-top-right-radius: var(--pico-border-radius);
-  border-top-left-radius: var(--pico-border-radius);
+  /* border-top-right-radius: var(--pico-border-radius); */
+  /* border-top-left-radius: var(--pico-border-radius); */
 }
 
 article>footer {

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <link href="/styles/main.css" rel="stylesheet" type="text/css" />
+  <link href="/pages/js-cafe/main.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -59,6 +60,14 @@
   </header>
   <main class="container">
     <section>
+      <dialog open>
+        <article>
+          <header>
+            <h2>This is a test</h2>
+            <button rel="prev">
+          </header>
+        </article>
+      </dialog>
       <article>
         <header>
           <h2>Menu:</h2>
@@ -76,22 +85,21 @@
       </article>
     </section>
     <section>
-      <article>
-        <div id="all-tickets">
-          <div class="ticket-holder">
-            <h3 id="tickets-h3">Tickets:</h3>
-          </div>
-          <div class="ticket-holder-back">
-          </div>
-          <div id="tickets" class="display-tickets">
-          </div>
+      <div id="all-tickets">
+        <div class="ticket-holder">
+          <h3 id="tickets-h3">Tickets:</h3>
         </div>
-      </article>
+        <div class="ticket-holder-back">
+        </div>
+        <div id="tickets" class="display-tickets">
+        </div>
+      </div>
     </section>
     <section>
       <article>
         <header>
-          <h2>Back office: Current stock levels</h2>
+          <h2>Back office:</h2>
+          <h4>Current stock levels</h4>
         </header>
         <div id="stockMenu" class="container">
           <div class="grid">
@@ -107,7 +115,8 @@
       </article>
     </section>
   </main>
-  <script src="cafe.js"></script>
+  <script src="cafe.js" type="module"></script>
+  <script src="/scripts/minimal-theme-switcher.js" type="module"></script>
 </body>
 
 </html>

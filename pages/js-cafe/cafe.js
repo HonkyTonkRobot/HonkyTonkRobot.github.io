@@ -115,17 +115,24 @@ function generateCustomerOrder() {
   customer.order = newOrder
   tickets(ticketCounter)
   customerOrderAlert()
-  processOrder()
+  // processOrder()
 }
 
 // -- PRINT TICKET -- //
-
+// makeTicket parameter passes in the current ticket no. from ticketCounter
 function tickets(makeTicket) {
   let ticketHolder = document.getElementById('tickets')
-  let newTicket = document.createElement('div')
-  newTicket.id = makeTicket
-  newTicket.className = 'ticket'
-  ticketHolder.appendChild(newTicket)
+  let newContainer = document.createElement('div')
+  newContainer.id = makeTicket
+  newContainer.className = 'ticket'
+  // OPTIMIZE: Delete on next refactor
+
+  // let newTicket = document.createElement('div')
+  // newTicket.id = makeTicket
+  // newTicket.className = 'ticket'
+  // newContainer.appendChild(newTicket)
+
+  ticketHolder.appendChild(newContainer)
 
   let ticketInfoHolder = document.getElementById(makeTicket)
   let ticketInfo = document.createElement('p')
@@ -136,7 +143,8 @@ function tickets(makeTicket) {
   orderButton.id = 'ticket-' + ticketCounter
   orderButton.className = 'button'
   orderButton.textContent = 'Done'
-  orderButton.style = 'z-index: 0;'
+  orderButton.setAttribute('tableindex', '0')
+
   orderButton.setAttribute('onclick', 'destroyTicket(this)')
 
   ticketInfoHolder.appendChild(ticketInfo)
