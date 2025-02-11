@@ -173,7 +173,9 @@ function customerOrderAlert() {
   //get onclick from take order
   //create alert with customer order.
   //get customer order to print to alert
-  alert("Can I order, " + customer.order)
+  // alert("Can I order, " + customer.order)
+  let openDialog = document.getElementById('customerOrder')
+  openDialog.setAttribute('open', '')
 }
 
 function processOrder() {
