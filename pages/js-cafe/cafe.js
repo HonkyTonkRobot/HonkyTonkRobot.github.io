@@ -143,8 +143,6 @@ function tickets(makeTicket) {
   orderButton.id = 'ticket-' + ticketCounter
   orderButton.className = 'button'
   orderButton.textContent = 'Done'
-  orderButton.setAttribute('tableindex', '0')
-
   orderButton.setAttribute('onclick', 'destroyTicket(this)')
 
   ticketInfoHolder.appendChild(ticketInfo)
@@ -169,13 +167,18 @@ function displayCash() {
 }
 displayCash()
 
+let openDialog = document.getElementById('customerOrder')
 function customerOrderAlert() {
-  //get onclick from take order
-  //create alert with customer order.
-  //get customer order to print to alert
-  // alert("Can I order, " + customer.order)
-  let openDialog = document.getElementById('customerOrder')
+  //TODO: If statement for orders with eggs
+  // - Create How would you like your eggs button with an ID
+  // - figure out how to make it render before the acceptOrder button
   openDialog.setAttribute('open', '')
+}
+
+openDialog.addEventListener('click', acceptOrder)
+function acceptOrder() {
+  openDialog.removeAttribute('open')
+  processOrder()
 }
 
 function processOrder() {
