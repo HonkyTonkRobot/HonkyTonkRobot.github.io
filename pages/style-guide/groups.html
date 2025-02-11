@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/styleguide.css">
+</head>
+
+<body>
+  <header class="style-guide-container">
+    <strong>Style Guide: Using Pico.css</strong>
+    <nav>
+      <li>
+        <details class="dropdown">
+          <summary>
+            Atoms
+          </summary>
+          <ul>
+            <li><a href="/pages/style-guide/typography.html">Typography</a></li>
+            <li><a href="/pages/style-guide/buttons.html">Buttons</a></li>
+            <li><a Aria-current data-discover="true" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round" class="icon-check">
+                  <path id="check-icon" d="M5 12l5 5l10 -10"></path>
+                </svg><span>Groups</span></li>
+            <li><a href="/pages/style-guide/colors.html">Colors</a></li>
+        </details>
+      </li>
+      <li><a href="#" class="secondary">Molecules</a></li>
+      <li><a href="#" class="secondary">Organisms</a></li>
+      <li>
+        <details class="dropdown">
+          <summary role="button" class="outline contrast">
+            pages
+          </summary>
+          <ul dir="rtl">
+            <li><a aria-current="test 1" data-discover="true" href="#"><span>Test 1</span></a></li>
+            <li><a href="#">test 2</a></li>
+        </details>
+      </li>
+    </nav>
+  </header>
+
+  <main class="style-guide-container">
+
+    <!-- Groups -->
+
+    <h4><em>Group Form inputs</em></h4>
+    <section>
+      <article>
+        <h6>Email Subscribe</h6>
+        <form>
+          <fieldset role="group">
+            <input name="email" type="email" placeholder="Enter your email" autocomplete="email" />
+            <input type="submit" value="Subscribe" />
+          </fieldset>
+        </form>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <h6>Login Group</h6>
+        <form>
+          <fieldset role="group">
+            <input name="email" type="email" placeholder="Email" autocomplete="email" />
+            <input name="password" type="password" placeholder="Password" />
+            <input type="submit" value="Log in" />
+          </fieldset>
+        </form>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <h6>Search Group</h6>
+        <form role="search">
+          <input name="search" type="search" placeholder="Search" />
+          <input type="submit" value="Search" />
+        </form>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <h6>Active Button Group</h6>
+        <div role="group">
+          <button aria-current="true">Active</button>
+          <button>Button</button>
+          <button>Button</button>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <h6>Button Group</h6>
+        <div role="group">
+          <button>Primary</button>
+          <button class="secondary">Secondary</button>
+          <button class="Contrast">Contrast</button>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <h6>Outline Button Group</h6>
+        <div role="group">
+          <button class="outline">Outline Primary</button>
+          <button class="outline secondary">Outline Secondary</button>
+          <button class="outline Contrast">Outline Contrast</button>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="style-guide-container">
+    <nav>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+
+</html>

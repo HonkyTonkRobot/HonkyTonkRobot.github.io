@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/styleguide.css">
+</head>
+
+<body>
+  <header class="style-guide-container">
+    <strong>Style Guide: Using Pico.css</strong>
+    <nav>
+      <li>
+        <details class="dropdown">
+          <summary>
+            Atoms
+          </summary>
+          <ul>
+            <li><a href="/pages/style-guide/typography.html">Typography</a></li>
+            <li><a href="/pages/style-guide/buttons.html">Buttons</a></li>
+            <li><a href="/pages/style-guide/groups.html">Groups</a></li>
+            <li><a Aria-current data-discover="true" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round" class="icon-check">
+                  <path id="check-icon" d="M5 12l5 5l10 -10"></path>
+                </svg><span>Colors</span></a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="#" class="secondary">Molecules</a></li>
+      <li><a href="#" class="secondary">Organisms</a></li>
+      <li>
+        <details class="dropdown">
+          <summary role="button" class="outline contrast">
+            pages
+          </summary>
+          <ul dir="rtl">
+            <li><a aria-current="test 1" data-discover="true" href="#"><span>Test 1</span></a></li>
+            <li><a href="#">test 2</a></li>
+        </details>
+      </li>
+    </nav>
+  </header>
+
+  <main class="style-guide-container">
+
+    <!-- Button -->
+
+    <section>
+      <article>
+        <header>
+          <h4><em>Buttons</em></h4>
+        </header>
+        <ul>
+          <div class="grid">
+            <div>
+              <h6>Primary</h6>
+              <button>Primary</button>
+              <h6>Secondary</h6>
+              <button class="secondary">Secondary</button>
+              <h6>Contrast</h6>
+              <button class="contrast">Contrast</button>
+            </div>
+            <div>
+              <h6>Outline</h6>
+              <button class="outline">Outline</button>
+              <h6>Outline Secondary</h6>
+              <button class="outline secondary">Outline Secondary</button>
+              <h6>Outline Contrast</h6>
+              <button class="outline contrast">Outline Contrast</button>
+            </div>
+          </div>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <header>
+          <h4><em>Minimal Buttons</em></h4>
+        </header>
+        <ul>
+          <h6>Minimal</h6>
+          <button class="minimal">Minimal</button>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <header>
+          <h4><em>Disabled Buttons</em></h4>
+        </header>
+        <ul>
+          <div class="grid">
+            <div>
+              <h6>Disabled</h6>
+              <button disabled>Disabled</button>
+            </div>
+            <div>
+              <h6>Disabled Secondary</h6>
+              <button class="secondary" disabled>Disabled Contrast</button>
+            </div>
+            <div>
+              <h6>Disabled Contrast</h6>
+              <button class="contrast" disabled>Disabled Contrast</button>
+            </div>
+          </div>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <header>
+          <h4><em>Form Buttons</em></h4>
+        </header>
+        <input type="submit">
+        <input type="button" value="Input">
+        <input type="reset">
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <header>
+          <h4><em>Role Buttons</em></h4>
+          <p>clickable elements with <code>role="button"</code> are rendered as buttons.</p>
+        </header>
+        <div role="button" tabindex="0">Div as a button</div>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <header>
+          <h4><em>Group Buttons</em></h4>
+          <p>You can use role group<code>role="group"</code></p>
+        </header>
+        <div role="group">
+          <button>Button 1</button>
+          <button>Button 2</button>
+          <button>Button 3</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="style-guide-container">
+    <nav>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+
+</html>
