@@ -253,10 +253,7 @@ details summary[role='button']:not(.outline)::after {
 :root:not([data-theme='dark']) {
   --pico-background-color: #ffe;
   --pico-color: #373c44;
-  --pico-text-selection-color: rgba(158,
-      146,
-      0,
-      0.25);
+  --pico-text-selection-color: rgba(158, 146, 0, 0.25);
   --pico-muted-color: #000;
   --pico-muted-border-color: #e7eaf0;
   --pico-primary: #6e6a60;
@@ -397,6 +394,12 @@ details summary[role='button']:not(.outline)::after {
   [type='file']) {
   --pico-form-element-focus-color: var(--pico-primary-focus);
 }
+
+/*////////////////////
+///  Styles for   ///
+//  User defined ///
+/ Dark mode pref //
+////////////////*/
 
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme]) {

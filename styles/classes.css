@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+/*!
+ * Pico CSS ✨ v2.0.6 (https://picocss.com)
+ * Copyright 2019-2024 - Licensed under MIT
+ */
+/**
+
+/* /////////////
+/// Padding ///
+////////////*/
+
+.padding-xmsmall-trbl {
+  padding: .25rem;
+}
+
+.padding-small-trbl {
+  padding: .5rem;
+}
+
+.padding-medium-trbl {
+  padding: 1rem;
+}
+
+.padding-large-trbl {
+  padding: 1.5rem;
+}
+
+.padding-xlarge-trbl {
+  padding: 2rem;
+}

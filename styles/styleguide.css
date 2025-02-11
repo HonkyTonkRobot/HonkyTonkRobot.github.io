@@ -46,3 +46,9 @@
     max-width: 1250px;
   }
 }
+
+details[class=dropdown] svg {
+  stroke: #6e6a60;
+  margin-right: .5rem;
+  transform: scale(1);
+}

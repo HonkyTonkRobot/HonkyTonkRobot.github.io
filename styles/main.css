@@ -75,9 +75,9 @@
   --pico-icon-loading: url("data:image/svg+xml,%3Csvg fill='none' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' %3E%3Cstyle%3E g %7B animation: rotate 2s linear infinite; transform-origin: center center; %7D circle %7B stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; %7D @keyframes rotate %7B 0%25 %7B transform: rotate(0deg); %7D 100%25 %7B transform: rotate(360deg); %7D %7D @keyframes dash %7B 0%25 %7B stroke-dasharray: 1,100; stroke-dashoffset: 0; %7D 50%25 %7B stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; %7D 100%25 %7B stroke-dasharray: 44.5,100; stroke-dashoffset: -62; %7D %7D %3C/style%3E%3Cg%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='rgb(136, 145, 164)' stroke-width='4' /%3E%3C/g%3E%3C/svg%3E");
 }
 
-/*///////////////////
-//// Media Query ///
-/////////////////*/
+/*////////////////////////
+//// Font Media Query ///
+//////////////////////*/
 
 @media (min-width: 576px) {
   :root {
@@ -109,6 +109,9 @@
   }
 }
 
+/*///////////////////
+/// Anchor Tags ////
+/////////////////*/
 a {
   --pico-text-decoration: underline;
 }
@@ -117,6 +120,10 @@ a.secondary,
 a.contrast {
   --pico-text-decoration: underline;
 }
+
+/*/////////////////
+/// Typography ///
+///////////////*/
 
 small {
   --pico-font-size: 0.875em;
@@ -167,6 +174,10 @@ h6 {
   --pico-typography-spacing-top: 1.5rem;
 }
 
+/*/////////////
+/// Tables ///
+///////////*/
+
 thead th,
 thead td,
 tfoot th,
@@ -174,6 +185,10 @@ tfoot td {
   --pico-font-weight: 600;
   --pico-border-width: 0.1875rem;
 }
+
+/*//////////////////
+/// Text Helpers ///
+/////////////////*/
 
 pre,
 code,
@@ -185,6 +200,10 @@ samp {
 kbd {
   --pico-font-weight: bolder;
 }
+
+/*////////////
+/// Forms ///
+//////////*/
 
 input:not([type=submit],
   [type=button],
@@ -209,6 +228,10 @@ input:not([type=submit],
   --pico-border-width: 0.1875rem;
 }
 
+/*//////////////////////////
+/// Details & Dropdowns ///
+////////////////////////*/
+
 details.dropdown summary:not([role=button]) {
   --pico-outline-width: 0.0625rem;
 }
@@ -216,6 +239,14 @@ details.dropdown summary:not([role=button]) {
 nav details.dropdown summary:focus-visible {
   --pico-outline-width: 0.125rem;
 }
+
+details summary[role=button]:not(.outline)::after {
+  filter: brightness(0) invert(1);
+}
+
+/*/////////////
+/// Search ///
+///////////*/
 
 [role=search] {
   --pico-border-radius: 5rem;
@@ -254,10 +285,6 @@ nav details.dropdown summary:focus-visible {
   --pico-form-element-spacing-horizontal: 2rem;
 }
 
-details summary[role=button]:not(.outline)::after {
-  filter: brightness(0) invert(1);
-}
-
 [aria-busy=true]:not(input, select, textarea):is(button, [type=submit], [type=button], [type=reset], [role=button]):not(.outline)::before {
   filter: brightness(0) invert(0);
 }
@@ -265,9 +292,14 @@ details summary[role=button]:not(.outline)::after {
 /**
  * Color schemes
  */
+
+/*/////////////////
+/// Light Theme ///
+////////////////*/
+
 [data-theme=light],
 :root:not([data-theme=dark]) {
-  --pico-background-color: #fff;
+  --pico-background-color: #ffe;
   --pico-color: #373c44;
   --pico-text-selection-color: rgba(149, 144, 130, 0.25);
   --pico-muted-color: #646b79;
@@ -618,6 +650,10 @@ details summary[role=button]:not(.outline)::after {
   --pico-icon-invalid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(150, 74, 80)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='12' y1='8' x2='12' y2='12'%3E%3C/line%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'%3E%3C/line%3E%3C/svg%3E");
   color-scheme: dark;
 }
+
+/*/////////////////
+/// Dark Theme ///
+////////////////*/
 
 [data-theme=dark] input:is([type=submit],
   [type=button],
@@ -1415,7 +1451,9 @@ fieldset {
   margin: 0;
   margin-bottom: var(--pico-spacing);
   padding: 0;
-  border: 0;
+  border: 2;
+  border-radius: 20px;
+  border-color: var(--pico-primary-border);
 }
 
 label,
@@ -1427,6 +1465,8 @@ fieldset legend {
 }
 
 fieldset legend {
+  padding: 0 10px 0 10px;
+  margin-left: 50px;
   margin-bottom: calc(var(--pico-spacing) * 0.5);
 }
 
