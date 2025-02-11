@@ -2519,10 +2519,10 @@ nav details.dropdown {
 details.dropdown summary:not([role]) {
   height: calc(1rem * var(--pico-line-height) + var(--pico-form-element-spacing-vertical) * 2 + var(--pico-border-width) * 2);
   padding: var(--pico-form-element-spacing-vertical) var(--pico-form-element-spacing-horizontal);
-  border-top: var(--pico-border-width) solid var(--pico-form-element-border-color);
-  border-left: var(--pico-border-width) solid var(--pico-form-element-border-color);
-  border-bottom: var(--pico-border-width) solid var(--pico-form-element-border-color-2);
-  border-right: var(--pico-border-width) solid var(--pico-form-element-border-color-2);
+  /* border-top: var(--pico-border-width) solid var(--pico-form-element-border-color); */
+  /* border-left: var(--pico-border-width) solid var(--pico-form-element-border-color); */
+  /* border-bottom: var(--pico-border-width) solid var(--pico-form-element-border-color-2); */
+  /* border-right: var(--pico-border-width) solid var(--pico-form-element-border-color-2); */
   border-radius: var(--pico-border-radius);
   background-color: var(--pico-form-element-background-color);
   color: var(--pico-form-element-placeholder-color);

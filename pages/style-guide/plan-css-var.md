@@ -53,15 +53,21 @@ description: looking at webflow style guides to make a simple but complete class
 - normal - symantic html
 - underlined - symantic html
 - txt cut 2lines - cuts the text off after two lines and ads three stops at the end
-- txt allcaps - Maybe symantic html
+- Case
+
 
 ### Have a think about how to do text alignment variables
 - might just be worth making classes here.
 
-## Colors
+## Color classes
 --primary
 --secondary
 --contrast
+--outline-minimal
+--disabled
+
+
+
 
 
 

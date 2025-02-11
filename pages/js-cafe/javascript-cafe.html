@@ -16,11 +16,6 @@
     <nav>
       <ul>
         <li>
-          <h1>JavaScript Café</h1>
-        </li>
-      </ul>
-      <ul>
-        <li>
           <details class="dropdown">
             <summary class="secondary">Home</summary>
             <ul>
@@ -43,6 +38,23 @@
           </details>
         </li>
       </ul>
+      <ul>
+        <li>
+          <h1>JavaScript Café</h1>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <details class="dropdown">
+            <summary class="secondary">Theme</summary>
+            <ul>
+              <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+              <li><a href="#" data-theme-switcher="light">Light</a></li>
+              <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
     </nav>
   </header>
   <main class="container">
@@ -51,11 +63,16 @@
         <header>
           <h2>Menu:</h2>
         </header>
-        <div id="menu" class="container">
+        <div class="grid">
+          <div>
+          </div>
+          <div id="menu" class="container">
+          </div>
+          <div>
+            <button class="button" id="customerButton">Take Order</button>
+            <h4 id="cash"></h4>
+          </div>
         </div>
-        <button class="button" id="customerButton">Take Order</button>
-        <!-- <button class="button" id="checkout">Checkout</button> -->
-        <h4 id="cash"></h4>
       </article>
     </section>
     <section>
@@ -77,8 +94,14 @@
           <h2>Back office: Current stock levels</h2>
         </header>
         <div id="stockMenu" class="container">
-          <div id="stock">
+          <div class="grid">
+            <div>
+            </div>
+            <div id="stock">
 
+            </div>
+            <div>
+            </div>
           </div>
         </div>
       </article>
