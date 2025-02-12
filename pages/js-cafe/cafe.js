@@ -179,13 +179,14 @@ function tickets(ticketNumber) {
   newContainer.className = 'ticket'
 
   let ticketGrid = document.createElement('div')
-  ticketGrid.className = 'grid'
+  ticketGrid.className = 'grid ticket-info'
 
   let products = document.createElement('div')
   products.innerHTML =
-    '<p>Order:' + ticketCounter + '</p><p>- - - -</p>' + printToTicket
+    '<p>Order:</p><p>- - - -</p>' + printToTicket
 
   let ticketTimers = document.createElement('div')
+  ticketTimers.innerHTML = '<p>' + ticketCounter + '</p><p>-</p><p>2:00</p><p>2:21</p>'
 
   // OPTIMIZE: Delete on next refactor
   // let newTicket = document.createElement('div')
@@ -194,7 +195,7 @@ function tickets(ticketNumber) {
   // newContainer.appendChild(newTicket)
   // newContainer.appendChild(orderList, makeTimer)
 
-  //OPTIMIZE: Delete on next refactor
+  // OPTIMIZE: Delete on next refactor
   // let ticketInfoHolder = document.getElementById(ticketNumber)
   // let ticketInfo = document.createElement('p')
 
@@ -208,7 +209,7 @@ function tickets(ticketNumber) {
   orderButton.className = 'button'
   orderButton.textContent = 'Done'
 
-  //OPTIMIZE: remove on refactor
+  // OPTIMIZE: remove on refactor
   // orderButton.setAttribute('onclick', 'destroyTicket(this)')
   // let test = '2:00'
   // products.appendChild(ticketInfo)
