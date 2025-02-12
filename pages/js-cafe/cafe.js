@@ -172,6 +172,9 @@ function customerOrderAlert() {
   //TODO: If statement for orders with eggs
   // - Create How would you like your eggs button with an ID
   // - figure out how to make it render before the acceptOrder button
+
+  let customerOrder = document.getElementById('displayCustomerOrder')
+  customerOrder.innerHTML = "Can I please order: " + printToTicket
   openDialog.setAttribute('open', '')
 }
 
@@ -204,7 +207,6 @@ function processOrder() {
   displayCash()
   displayStockLevels()
 }
-// document.getElementById('checkout').onclick = processOrder
 
 // -- TICKET NUMBERING -- //
 
