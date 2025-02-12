@@ -2175,8 +2175,8 @@ article>header {
   margin-top: calc(var(--pico-block-spacing-vertical) * -1);
   margin-bottom: var(--pico-block-spacing-vertical);
   border-bottom: var(--pico-border-width) solid var(--pico-card-border-color);
-  /* border-top-right-radius: var(--pico-border-radius); */
-  /* border-top-left-radius: var(--pico-border-radius); */
+  border-top-right-radius: var(--pico-border-radius);
+  border-top-left-radius: var(--pico-border-radius);
 }
 
 article>footer {

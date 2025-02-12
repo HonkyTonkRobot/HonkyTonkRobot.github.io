@@ -167,29 +167,29 @@ function displayCash() {
 }
 displayCash()
 
+// -- New Customer Order Alert -- //
 let openDialog = document.getElementById('customerOrder')
+let scrollStatus = document.documentElement
 function customerOrderAlert() {
   //TODO: If statement for orders with eggs
   // - Create How would you like your eggs button with an ID
   // - figure out how to make it render before the acceptOrder button
 
   let customerOrder = document.getElementById('displayCustomerOrder')
-  customerOrder.innerHTML = "Can I please order: " + printToTicket
+  customerOrder.innerHTML = "<strong>Can I please order:</strong>" + printToTicket
   openDialog.setAttribute('open', '')
+  scrollStatus.className = 'modal-is-open modal-is-opening'
 }
 
 openDialog.addEventListener('click', acceptOrder)
 function acceptOrder() {
+  scrollStatus.className = ''
   openDialog.removeAttribute('open')
   processOrder()
 }
 
+// -- Process Order -- //
 function processOrder() {
-  // get item names from order
-  // get price(s) from products object
-  // get stock from products object
-  // add product price to sale total
-  // reduct stock by items sold
 
   let saleTotal = 0
 
