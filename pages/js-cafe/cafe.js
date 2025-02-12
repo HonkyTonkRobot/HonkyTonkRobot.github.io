@@ -1,41 +1,55 @@
-// -- JAVASCRIPT CAFE! -- //
+// import * as timer from '../../scripts/countdown.js'
 
+// -- JAVASCRIPT CAFE! -- //
+// TODO: import countdown function
 // -- PRODUCTS -- //
 let products = {
   whiteCoffee: {
     productName: 'White Coffee',
     price: 5,
     stock: 8,
+    minutes: 2,
+    seconds: 59,
   },
 
   blackCoffee: {
     productName: 'Black Coffee',
     price: 3.5,
     stock: 13,
+    minutes: 1,
+    seconds: 37,
   },
 
   muffin: {
     productName: 'Muffin',
     price: 4,
     stock: 4,
+    minutes: 0,
+    seconds: 59,
   },
 
   avocadoToast: {
     productName: 'Avocado Toast',
     price: 11,
     stock: 7,
+    minutes: 4,
+    seconds: 59,
   },
 
   cheeseScone: {
     productName: 'Cheese Scone',
     price: 6,
     stock: 8,
+    minutes: 0,
+    seconds: 59,
   },
 
   dogBiscuit: {
     productName: 'Dog Biscuit',
     price: 1,
     stock: 20,
+    minutes: 0,
+    seconds: 11,
   },
 }
 
@@ -93,6 +107,8 @@ let printToTicket = {
   order: [],
 }
 
+let allTimers = {}
+
 let minOrderSize = 1
 let maxOrderSize = 5
 
@@ -101,21 +117,47 @@ function generateCustomerOrder() {
 
   let newOrder = []
   let formatForTicket = []
+  let startBtn = document.createElement('button')
+  startBtn.id = 'startBtn'
 
   let productNames = Object.keys(products)
 
   for (let i = 0; i < orderSize; i++) {
     let productIndex = getRandomInt(0, productNames.length - 1)
     let productName = productNames[productIndex]
+    let minutes = products[productName].minutes
+    let seconds = products[productName].seconds
+    let timers = {}
     newOrder.push(productName)
-    formatForTicket.push('</br>' + productName)
-  }
+    orderFormat(productName, i)
+    timers.minutes = minutes
+    timers.seconds = seconds
+    allTimers[productName] = timers
+    // console.log(minutes + ":" + seconds)
+    // let timer = minutes + ":" + seconds
+    // timers.push(minutes, seconds)
 
+  }
+  //
+  // function orderFormat(productName, i) {
+  //   if (i === 0) {
+  //     formatForTicket.push('<p>a ' + productName)
+  //   }
+  //   if (i === orderSize - 1) {
+  //     formatForTicket.push('</p><p>and a ' + productName + '</p>')
+  //   }
+  //   else {
+  //     formatForTicket.push('</p><p>' + productName)
+  //   }
+  //
+  // }
+
+  console.log(allTimers)
   printToTicket = formatForTicket
   customer.order = newOrder
-  tickets(ticketCounter)
   customerOrderAlert()
   // processOrder()
+  console.log(printToTicket)
 }
 
 // -- PRINT TICKET -- //
@@ -131,14 +173,19 @@ function tickets(makeTicket) {
   // newTicket.id = makeTicket
   // newTicket.className = 'ticket'
   // newContainer.appendChild(newTicket)
-
+  // newContainer.appendChild(orderList, makeTimer)
   ticketHolder.appendChild(newContainer)
 
   let ticketInfoHolder = document.getElementById(makeTicket)
   let ticketInfo = document.createElement('p')
+
   ticketInfo.innerHTML =
     'Order:' + ticketCounter + '</br>- - - - - - - -' + printToTicket
 
+  let startBtn = document.createElement('button')
+  startBtn.id = 'startBtn'
+  startBtn.className = 'button'
+  startBtn.textContent = 'Start'
   let orderButton = document.createElement('button')
   orderButton.id = 'ticket-' + ticketCounter
   orderButton.className = 'button'
@@ -147,16 +194,25 @@ function tickets(makeTicket) {
 
   ticketInfoHolder.appendChild(ticketInfo)
   ticketInfoHolder.appendChild(orderButton)
+  ticketInfoHolder.appendChild(startBtn)
 
   orderButton.addEventListener('click', destroyTicket)
 }
 
+// -- Ticket Timers -- //
+// TODO: create timer start buttons for each food item
+// TODO: create onclick event that
+// TODO: and also removes button
+// TODO: and also creates the timer display
+// TODO: and calls countdown function
+//
+//OPTIMIZE: next refactor
 // -- DESTROY TICKET -- //
-function destroyTicket(buttonClick) {
-  let buttonId = buttonClick.id
+function destroyTicket() {
+  // let buttonId = buttonClick.id
   let parentElement = this.parentNode
   parentElement.parentNode.removeChild(parentElement)
-  console.log(buttonId)
+  // console.log(this.parentNode)
 }
 
 // -- TRANSACTIONS -- //
@@ -186,6 +242,7 @@ function acceptOrder() {
   scrollStatus.className = ''
   openDialog.removeAttribute('open')
   processOrder()
+  tickets(ticketCounter)
 }
 
 // -- Process Order -- //
@@ -195,7 +252,7 @@ function processOrder() {
 
   for (let i = 0; i < customer.order.length; i++) {
     let productName = customer.order[i]
-    console.log(customer.order[i])
+    // console.log(customer.order[i])
     if (products[productName].stock > 0) {
       products[productName].stock--
       saleTotal += products[productName].price
@@ -223,3 +280,5 @@ function getRandomInt(min, max) {
   max = Math.floor(max)
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
+
+// timer.countDown()

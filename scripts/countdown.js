@@ -22,7 +22,7 @@ function updateTimer() {
 }
 
 //make the start and stop buttons start and stop timer
-function countDown() {
+export function countDown() {
   if (!isRunning) {
     isRunning = true
     timerDisplay.style.color = 'var(--pico-del-color)'
