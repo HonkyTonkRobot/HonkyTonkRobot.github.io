@@ -171,31 +171,32 @@ function generateCustomerOrder() {
 }
 
 // -- PRINT TICKET -- //
-// makeTicket parameter passes in the current ticket no. from ticketCounter
-function tickets(makeTicket) {
+// ticketNumber parameter passes in the current ticket no. from ticketCounter
+function tickets(ticketNumber) {
   let ticketHolder = document.getElementById('tickets')
   let newContainer = document.createElement('div')
-  newContainer.id = makeTicket
+  newContainer.id = ticketNumber
   newContainer.className = 'ticket'
+
   let ticketGrid = document.createElement('div')
   ticketGrid.className = 'grid'
+
   let products = document.createElement('div')
+  products.innerHTML =
+    '<p>Order:' + ticketCounter + '</p><p>- - - -</p>' + printToTicket
+
   let ticketTimers = document.createElement('div')
 
   // OPTIMIZE: Delete on next refactor
   // let newTicket = document.createElement('div')
-  // newTicket.id = makeTicket
+  // newTicket.id = ticketNumber
   // newTicket.className = 'ticket'
   // newContainer.appendChild(newTicket)
   // newContainer.appendChild(orderList, makeTimer)
 
-
   //OPTIMIZE: Delete on next refactor
-  // let ticketInfoHolder = document.getElementById(makeTicket)
-
-  let ticketInfo = document.createElement('p')
-  ticketInfo.innerHTML =
-    'Order:' + ticketCounter + '<p>- - - - - - - -</p>' + printToTicket
+  // let ticketInfoHolder = document.getElementById(ticketNumber)
+  // let ticketInfo = document.createElement('p')
 
   let startBtn = document.createElement('button')
   startBtn.id = 'startBtn'
@@ -210,7 +211,7 @@ function tickets(makeTicket) {
   //OPTIMIZE: remove on refactor
   // orderButton.setAttribute('onclick', 'destroyTicket(this)')
   // let test = '2:00'
-  products.appendChild(ticketInfo)
+  // products.appendChild(ticketInfo)
   // ticketTimers.appendChild(test)
 
   ticketGrid.appendChild(products)
