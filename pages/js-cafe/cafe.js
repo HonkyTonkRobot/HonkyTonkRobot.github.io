@@ -106,6 +106,9 @@ let customer = {
 let printToTicket = {
   order: [],
 }
+let customerOrderModal = {
+  order: [],
+}
 
 let allTimers = {}
 
@@ -117,6 +120,7 @@ function generateCustomerOrder() {
 
   let newOrder = []
   let formatForTicket = []
+  let formatForCustomerOrder = []
   let startBtn = document.createElement('button')
   startBtn.id = 'startBtn'
 
@@ -138,26 +142,32 @@ function generateCustomerOrder() {
     // timers.push(minutes, seconds)
 
   }
-  //
-  // function orderFormat(productName, i) {
-  //   if (i === 0) {
-  //     formatForTicket.push('<p>a ' + productName)
-  //   }
-  //   if (i === orderSize - 1) {
-  //     formatForTicket.push('</p><p>and a ' + productName + '</p>')
-  //   }
-  //   else {
-  //     formatForTicket.push('</p><p>' + productName)
-  //   }
-  //
-  // }
+
+  // seperate out order formatting
+  function orderFormat(productName, i) {
+    if (i === 0) {
+      formatForCustomerOrder.push('<p>a ' + productName)
+      formatForTicket.push('<p>' + productName)
+    }
+    if (i === orderSize - 1) {
+      formatForCustomerOrder.push('</p><p>and a ' + productName + '</p>')
+      formatForTicket.push('</p><p>' + productName + '</p>')
+    }
+    else {
+      formatForCustomerOrder.push('</p><p>' + productName)
+      formatForTicket.push('</p><p>' + productName)
+    }
+
+  }
 
   console.log(allTimers)
   printToTicket = formatForTicket
+  customerOrderModal = formatForCustomerOrder
   customer.order = newOrder
   customerOrderAlert()
   // processOrder()
   console.log(printToTicket)
+  console.log(customerOrderModal)
 }
 
 // -- PRINT TICKET -- //
@@ -232,7 +242,7 @@ function customerOrderAlert() {
   // - figure out how to make it render before the acceptOrder button
 
   let customerOrder = document.getElementById('displayCustomerOrder')
-  customerOrder.innerHTML = "<strong>Can I please order:</strong>" + printToTicket
+  customerOrder.innerHTML = "<strong>Can I please order:</strong>" + customerOrderModal
   openDialog.setAttribute('open', '')
   scrollStatus.className = 'modal-is-open modal-is-opening'
 }
