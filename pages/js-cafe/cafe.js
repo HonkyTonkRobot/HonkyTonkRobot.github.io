@@ -177,20 +177,30 @@ function tickets(makeTicket) {
   let newContainer = document.createElement('div')
   newContainer.id = makeTicket
   newContainer.className = 'ticket'
-  // OPTIMIZE: Delete on next refactor
+  let ticketGrid = document.createElement('div')
+  ticketGrid.className = 'grid'
+  let products = document.createElement('div')
+  let timers = document.createElement('div')
 
+  // OPTIMIZE: Delete on next refactor
   // let newTicket = document.createElement('div')
   // newTicket.id = makeTicket
   // newTicket.className = 'ticket'
   // newContainer.appendChild(newTicket)
   // newContainer.appendChild(orderList, makeTimer)
+
+  ticketGrid.appendChild(products)
+  ticketGrid.appendChild(timers)
+  newContainer.appendChild(ticketGrid)
   ticketHolder.appendChild(newContainer)
 
-  let ticketInfoHolder = document.getElementById(makeTicket)
+  //OPTIMIZE: Delete on next refactor
+  // let ticketInfoHolder = document.getElementById(makeTicket)
+
   let ticketInfo = document.createElement('p')
 
   ticketInfo.innerHTML =
-    'Order:' + ticketCounter + '</br>- - - - - - - -' + printToTicket
+    'Order:' + ticketCounter + '<p>- - - - - - - -</p>' + printToTicket
 
   let startBtn = document.createElement('button')
   startBtn.id = 'startBtn'
@@ -200,11 +210,13 @@ function tickets(makeTicket) {
   orderButton.id = 'ticket-' + ticketCounter
   orderButton.className = 'button'
   orderButton.textContent = 'Done'
-  orderButton.setAttribute('onclick', 'destroyTicket(this)')
 
-  ticketInfoHolder.appendChild(ticketInfo)
-  ticketInfoHolder.appendChild(orderButton)
-  ticketInfoHolder.appendChild(startBtn)
+  //OPTIMIZE: remove on refactor
+  // orderButton.setAttribute('onclick', 'destroyTicket(this)')
+
+  newContainer.appendChild(ticketInfo)
+  newContainer.appendChild(orderButton)
+  newContainer.appendChild(startBtn)
 
   orderButton.addEventListener('click', destroyTicket)
 }
