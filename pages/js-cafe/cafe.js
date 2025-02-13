@@ -5,7 +5,7 @@
 
 
 // -- JAVASCRIPT CAFE! -- //
-// TODO: import countdown function
+
 // -- PRODUCTS -- //
 let products = {
   whiteCoffee: {
@@ -113,8 +113,9 @@ let printToTicket = {
 let customerOrderModal = {
   order: [],
 }
-
-let allTimers = {}
+let allTimers = {
+  order: [],
+}
 let timerDisplay
 
 let minOrderSize = 1
@@ -124,8 +125,10 @@ function generateCustomerOrder() {
   let orderSize = getRandomInt(minOrderSize, maxOrderSize)
 
   let newOrder = []
+  let timers = []
   let formatForTicket = []
   let formatForCustomerOrder = []
+  let formatForTimers = []
   let startBtn = document.createElement('button')
   startBtn.id = 'startBtn'
 
@@ -136,12 +139,14 @@ function generateCustomerOrder() {
     let productName = productNames[productIndex]
     let minutes = products[productName].minutes
     let seconds = products[productName].seconds
-    let timers = {}
     newOrder.push(productName)
-    orderFormat(productName, i)
-    timers.minutes = minutes
-    timers.seconds = seconds
-    allTimers[productName] = timers
+    timers.push([minutes, seconds])
+    orderFormat(productName, minutes, seconds, i)
+
+    // OPTIMIZE: remove on refactor
+    // timers.minutes = minutes
+    // timers.seconds = seconds
+    // allTimers[i] = timers
     // console.log(minutes + ":" + seconds)
     // let timer = minutes + ":" + seconds
     // timers.push(minutes, seconds)
@@ -149,27 +154,34 @@ function generateCustomerOrder() {
   }
 
   // seperate out order formatting
-  function orderFormat(productName, i) {
+  function orderFormat(productName, minutes, seconds, i) {
     if (i === 0) {
       formatForCustomerOrder.push('<p>a ' + productName)
       formatForTicket.push('<p>' + productName)
+      formatForTimers.push('<p class="item-' + i + '">' + minutes + ':' + seconds)
     }
-    if (i === orderSize - 1) {
+    else if (i === orderSize - 1) {
       formatForCustomerOrder.push('</p><p>and a ' + productName + '</p>')
       formatForTicket.push('</p><p>' + productName + '</p>')
+      formatForTimers.push('</p><p class="item-' + i + '">' + minutes + ':' + seconds + '</p>')
     }
     else {
       formatForCustomerOrder.push('</p><p>' + productName)
       formatForTicket.push('</p><p>' + productName)
+      formatForTimers.push('</p><p class="item-' + i + '">' + minutes + ':' + seconds)
     }
 
   }
-
+  console.log(timers)
   printToTicket = formatForTicket
   customerOrderModal = formatForCustomerOrder
+  allTimers = formatForTimers
   customer.order = newOrder
   customerOrderAlert()
   // processOrder()
+  console.log(allTimers)
+  console.log(allTimers.order)
+  console.log(customer.order)
 }
 
 // -- PRINT TICKET -- //
@@ -191,7 +203,7 @@ function tickets(ticketNumber) {
   createTimer.id = 'time'
   createTimer.innerHTML = 'time'
   let ticketTimers = document.createElement('div')
-  ticketTimers.innerHTML = '<p>' + ticketCounter + '</p><p>-</p>'
+  ticketTimers.innerHTML = '<p>' + ticketCounter + '</p><p>-</p>' + allTimers
   ticketTimers.appendChild(createTimer)
 
   // OPTIMIZE: Delete on next refactor
@@ -212,13 +224,17 @@ function tickets(ticketNumber) {
   // HACK: Countdown timer just using values in countDown function as test
   // TODO: get function to pull numbers in for the correct product
   // TODO: and print each timer next the product
-  startBtn.addEventListener('click', countDown)
+  startBtn.addEventListener('click', function() {
+    countDown(doneButton)
+    startBtn.setAttribute('disabled', '')
+  })
 
-  let orderButton = document.createElement('button')
-  orderButton.id = 'ticket-' + ticketCounter
-  orderButton.className = 'button'
-  orderButton.textContent = 'Done'
-  orderButton.addEventListener('click', destroyTicket)
+  let doneButton = document.createElement('button')
+  doneButton.id = 'ticket-' + ticketCounter
+  doneButton.className = 'button'
+  doneButton.textContent = 'Done'
+  doneButton.addEventListener('click', destroyTicket)
+  doneButton.setAttribute('disabled', '')
 
   // OPTIMIZE: remove on refactor
   // orderButton.setAttribute('onclick', 'destroyTicket(this)')
@@ -230,7 +246,7 @@ function tickets(ticketNumber) {
   ticketGrid.appendChild(ticketTimers)
 
   newContainer.appendChild(ticketGrid)
-  newContainer.appendChild(orderButton)
+  newContainer.appendChild(doneButton)
   newContainer.appendChild(startBtn)
 
   ticketHolder.appendChild(newContainer)
@@ -245,6 +261,7 @@ function tickets(ticketNumber) {
 // TODO: and calls countdown function
 //
 //OPTIMIZE: next refactor
+
 // -- DESTROY TICKET -- //
 function destroyTicket() {
   // let buttonId = buttonClick.id
@@ -285,6 +302,26 @@ function acceptOrder() {
 
 // -- Process Order -- //
 function processOrder() {
+
+  let saleTotal = 0
+
+  for (let i = 0; i < customer.order.length; i++) {
+    let productName = customer.order[i]
+    // console.log(customer.order[i])
+    if (products[productName].stock > 0) {
+      products[productName].stock--
+      saleTotal += products[productName].price
+    } else {
+      alert('Sorry we are out of ' + productName)
+    }
+  }
+  cash += saleTotal
+  displayCash()
+  displayStockLevels()
+}
+
+// -- Process Order -- //
+function makeTimers() {
 
   let saleTotal = 0
 
@@ -344,7 +381,7 @@ function updateTimer() {
 }
 
 //make the start and stop buttons start and stop timer
-function countDown() {
+function countDown(doneButton) {
   if (!isRunning) {
     isRunning = true
     timerDisplay.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
@@ -361,10 +398,12 @@ function countDown() {
       } else {
         clearInterval(interval)
         isRunning = false
+        doneButton.removeAttribute('disabled')
       }
     }, 1000)
   } else {
     clearInterval(interval)
     isRunning = false
+    doneButton.removeAttribute('disabled')
   }
 }
