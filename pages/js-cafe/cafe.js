@@ -105,17 +105,17 @@ displayStockLevels()
 
 let customer = {
   order: [],
+  timer: [],
 }
 
 let printToTicket = {
   order: [],
+  timer: [],
 }
 let customerOrderModal = {
   order: [],
 }
-let allTimers = {
-  order: [],
-}
+
 let timerDisplay
 
 let minOrderSize = 1
@@ -124,11 +124,14 @@ let maxOrderSize = 5
 function generateCustomerOrder() {
   let orderSize = getRandomInt(minOrderSize, maxOrderSize)
 
+  let formatForCustomerOrder = []
+
   let newOrder = []
   let timers = []
+
   let formatForTicket = []
-  let formatForCustomerOrder = []
   let formatForTimers = []
+
   let startBtn = document.createElement('button')
   startBtn.id = 'startBtn'
 
@@ -139,8 +142,12 @@ function generateCustomerOrder() {
     let productName = productNames[productIndex]
     let minutes = products[productName].minutes
     let seconds = products[productName].seconds
+
+    // TODO: see if possible to make this a function that is called inside of timers.push()
+
     newOrder.push(productName)
     timers.push([minutes, seconds])
+
     orderFormat(productName, minutes, seconds, i)
 
     // OPTIMIZE: remove on refactor
@@ -172,16 +179,15 @@ function generateCustomerOrder() {
     }
 
   }
-  console.log(timers)
-  printToTicket = formatForTicket
   customerOrderModal = formatForCustomerOrder
-  allTimers = formatForTimers
+
+  printToTicket.order = formatForTicket
+  printToTicket.timer = formatForTimers
+  customer.timer = timers
   customer.order = newOrder
   customerOrderAlert()
-  // processOrder()
-  console.log(allTimers)
-  console.log(allTimers.order)
   console.log(customer.order)
+  console.log(customer.timer)
 }
 
 // -- PRINT TICKET -- //
@@ -197,14 +203,14 @@ function tickets(ticketNumber) {
 
   let products = document.createElement('div')
   products.innerHTML =
-    '<p>Order:</p><p>- - - -</p>' + printToTicket
+    '<p>Order:</p><p>- - - -</p>' + printToTicket.order
 
-  let createTimer = document.createElement('p')
-  createTimer.id = 'time'
-  createTimer.innerHTML = 'time'
+  // let createTimer = document.createElement('p')
+  // createTimer.id = 'time'
+  // createTimer.innerHTML = 'time'
   let ticketTimers = document.createElement('div')
-  ticketTimers.innerHTML = '<p>' + ticketCounter + '</p><p>-</p>' + allTimers
-  ticketTimers.appendChild(createTimer)
+  ticketTimers.innerHTML = '<p>' + ticketCounter + '</p><p>-</p>' + printToTicket.timer
+  // ticketTimers.appendChild(createTimer)
 
   // OPTIMIZE: Delete on next refactor
   // let newTicket = document.createElement('div')
@@ -225,7 +231,7 @@ function tickets(ticketNumber) {
   // TODO: get function to pull numbers in for the correct product
   // TODO: and print each timer next the product
   startBtn.addEventListener('click', function() {
-    countDown(doneButton)
+    startTimers()
     startBtn.setAttribute('disabled', '')
   })
 
@@ -250,7 +256,7 @@ function tickets(ticketNumber) {
   newContainer.appendChild(startBtn)
 
   ticketHolder.appendChild(newContainer)
-  timerDisplay = createTimer
+  timerDisplay = customer.timer
 }
 
 // -- Ticket Timers -- //
@@ -361,49 +367,54 @@ function getRandomInt(min, max) {
 // Added timer here //
 /////////////////////
 /////////////////////
-// const timerDisplay = document.getElementById('time')
+function startTimers() {
+  for (let i = 0; i < customer.timer.length; i++) {
+    timerDisplay = document.getElementById('item-' + [i])
 
-let isRunning = false
-let interval
+    let isRunning = false
+    let interval
 
-let minutes = 0
-let seconds = 11
-// window.onload = countDown()
+    let minutes = 0
+    let seconds = 11
+    // window.onload = countDown()
 
-//function to update screen every second
-function updateTimer() {
-  if (seconds > 0 || minutes > 0) {
-    timerDisplay.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
-  } else {
-    timerDisplay.innerHTML = '<small>COMPLETE</small>'
-    timerDisplay.style.color = 'var(--pico-ins-color)'
-  }
-}
-
-//make the start and stop buttons start and stop timer
-function countDown(doneButton) {
-  if (!isRunning) {
-    isRunning = true
-    timerDisplay.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
-    timerDisplay.style.color = 'var(--pico-del-color)'
-
-    interval = setInterval(() => {
+    //function to update screen every second
+    function updateTimer() {
       if (seconds > 0 || minutes > 0) {
-        seconds--
-        if (seconds === 0 && minutes > 0) {
-          seconds = 59
-          minutes--
-        }
-        updateTimer()
+        timerDisplay.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+      } else {
+        timerDisplay.innerHTML = '<small>COMPLETE</small>'
+        timerDisplay.style.color = 'var(--pico-ins-color)'
+      }
+    }
+
+    //make the start and stop buttons start and stop timer
+    function countDown(doneButton) {
+      if (!isRunning) {
+        isRunning = true
+        timerDisplay.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+        timerDisplay.style.color = 'var(--pico-del-color)'
+
+        interval = setInterval(() => {
+          if (seconds > 0 || minutes > 0) {
+            seconds--
+            if (seconds === 0 && minutes > 0) {
+              seconds = 59
+              minutes--
+            }
+            updateTimer()
+          } else {
+            clearInterval(interval)
+            isRunning = false
+            doneButton.removeAttribute('disabled')
+          }
+        }, 1000)
       } else {
         clearInterval(interval)
         isRunning = false
-        doneButton.removeAttribute('disabled')
+        // doneButton.removeAttribute('disabled')
       }
-    }, 1000)
-  } else {
-    clearInterval(interval)
-    isRunning = false
-    doneButton.removeAttribute('disabled')
+    }
+    countDown()
   }
 }
