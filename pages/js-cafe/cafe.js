@@ -1,5 +1,9 @@
 // import * as timer from '../../scripts/countdown.js'
 
+
+
+
+
 // -- JAVASCRIPT CAFE! -- //
 // TODO: import countdown function
 // -- PRODUCTS -- //
@@ -111,6 +115,7 @@ let customerOrderModal = {
 }
 
 let allTimers = {}
+let timerDisplay
 
 let minOrderSize = 1
 let maxOrderSize = 5
@@ -160,14 +165,11 @@ function generateCustomerOrder() {
 
   }
 
-  console.log(allTimers)
   printToTicket = formatForTicket
   customerOrderModal = formatForCustomerOrder
   customer.order = newOrder
   customerOrderAlert()
   // processOrder()
-  console.log(printToTicket)
-  console.log(customerOrderModal)
 }
 
 // -- PRINT TICKET -- //
@@ -185,8 +187,12 @@ function tickets(ticketNumber) {
   products.innerHTML =
     '<p>Order:</p><p>- - - -</p>' + printToTicket
 
+  let createTimer = document.createElement('p')
+  createTimer.id = 'time'
+  createTimer.innerHTML = 'time'
   let ticketTimers = document.createElement('div')
-  ticketTimers.innerHTML = '<p>' + ticketCounter + '</p><p>-</p><p>2:00</p><p>2:21</p>'
+  ticketTimers.innerHTML = '<p>' + ticketCounter + '</p><p>-</p>'
+  ticketTimers.appendChild(createTimer)
 
   // OPTIMIZE: Delete on next refactor
   // let newTicket = document.createElement('div')
@@ -203,11 +209,16 @@ function tickets(ticketNumber) {
   startBtn.id = 'startBtn'
   startBtn.className = 'button'
   startBtn.textContent = 'Start'
+  // HACK: Countdown timer just using values in countDown function as test
+  // TODO: get function to pull numbers in for the correct product
+  // TODO: and print each timer next the product
+  startBtn.addEventListener('click', countDown)
 
   let orderButton = document.createElement('button')
   orderButton.id = 'ticket-' + ticketCounter
   orderButton.className = 'button'
   orderButton.textContent = 'Done'
+  orderButton.addEventListener('click', destroyTicket)
 
   // OPTIMIZE: remove on refactor
   // orderButton.setAttribute('onclick', 'destroyTicket(this)')
@@ -223,8 +234,7 @@ function tickets(ticketNumber) {
   newContainer.appendChild(startBtn)
 
   ticketHolder.appendChild(newContainer)
-
-  orderButton.addEventListener('click', destroyTicket)
+  timerDisplay = createTimer
 }
 
 // -- Ticket Timers -- //
@@ -309,4 +319,52 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-// timer.countDown()
+
+
+// Added timer here //
+/////////////////////
+/////////////////////
+// const timerDisplay = document.getElementById('time')
+
+let isRunning = false
+let interval
+
+let minutes = 0
+let seconds = 11
+// window.onload = countDown()
+
+//function to update screen every second
+function updateTimer() {
+  if (seconds > 0 || minutes > 0) {
+    timerDisplay.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+  } else {
+    timerDisplay.innerHTML = '<small>COMPLETE</small>'
+    timerDisplay.style.color = 'var(--pico-ins-color)'
+  }
+}
+
+//make the start and stop buttons start and stop timer
+function countDown() {
+  if (!isRunning) {
+    isRunning = true
+    timerDisplay.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+    timerDisplay.style.color = 'var(--pico-del-color)'
+
+    interval = setInterval(() => {
+      if (seconds > 0 || minutes > 0) {
+        seconds--
+        if (seconds === 0 && minutes > 0) {
+          seconds = 59
+          minutes--
+        }
+        updateTimer()
+      } else {
+        clearInterval(interval)
+        isRunning = false
+      }
+    }, 1000)
+  } else {
+    clearInterval(interval)
+    isRunning = false
+  }
+}
