@@ -1,7 +1,40 @@
 // import * as timer from '../../scripts/countdown.js'
 
+/// OPTIMIZE: and refactor plan
+//
+// keep product list, display menu, stock, and ticket holder
+//
+// new flow map
+// 1. click take order button
+// >>> function to generate random order in an object with an array of product names and the time to make them
+// >>> function to format "order" copy, order accept button, and display modal
+//
+// 2. click order accept button
+// >>> function to update till
+// >>> function to update stock
+// >>> function to generate ticket that will print to screen
+//
+// 3. Inside the generate ticket function
+// >>> function to format order for Ticket
+// >>> function to format initial timer display
+// >>> function to create start button
+// >>> function to listen for timers ending
+// >>> function to create done button
+//
+// 3.1. Format order function
+// >>> get info from random order object
+//
+// 3.2. format timer function
+// >>> get info from random order object
+//
+// 3.3. start button function
+// >>> starts function to loop through timers and initialize their countdown and update their display
 
+// 3.4. listen for timer end function
 
+// 3.5. done button function
+// >>> The done button starts disabled, and is enabled when all timers reach zero
+// >>> clicking the done button runs destroy ticket function
 
 
 // -- JAVASCRIPT CAFE! -- //

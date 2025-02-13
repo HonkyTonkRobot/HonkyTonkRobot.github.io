@@ -1,18 +1,20 @@
 // -- Building a timer practice -- //
 
 // -- GLOBAL VARIABLES -- //
-const timerDisplay = document.getElementById('time')
 // const startButton = document.getElementById('startBtn')
 // const resetButton = document.getElementById('resetBtn')
 // const timerContainer = document.getElementById('timerDisplay')
 
 let isRunning = false
 let interval
-let minutes = 0
-let seconds = 20
-window.onload = countDown()
+
+let minutes = 1
+let seconds = 11
+// window.onload = countDown()
+
 //function to update screen every second
 function updateTimer() {
+  const timerDisplay = document.getElementById('time')
   if (seconds > 0 || minutes > 0) {
     timerDisplay.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
   } else {
