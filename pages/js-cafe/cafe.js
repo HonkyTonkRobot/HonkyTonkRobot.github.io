@@ -10,8 +10,8 @@
 // [x] function to format "order" copy, order accept button, and display modal
 //
 // 2. click order accept button
-// >>> function to update till
-// >>> function to update stock
+// [x] function to update till
+// [x] function to update stock
 // >>> function to generate ticket that will print to screen
 //
 // 3. Inside the generate ticket function
@@ -70,26 +70,34 @@ displayProducts()
 // -- DISPLAY STOCK -- //
 ////////////////////////
 
-function displayStockLevels() {
-  let container = document.getElementById('stock')
+function updateStock() {
+  let stockDisplay = document.getElementById('stockDisplay')
 
-  while (container.firstChild) {
-    container.removeChild(container.firstChild)
+  while (stockDisplay.firstChild) {
+    stockDisplay.removeChild(stockDisplay.firstChild)
   }
 
   for (let currentStock in products) {
-    let updatedStock = document.createElement('p')
+    let stockToUpdate = document.createElement('p')
     let product = products[currentStock]
     if (product.stock === 0) {
-      updatedStock.innerHTML = '<s>' + product.name + ': ' + product.stock + '</s>'
-      updatedStock.style.color = 'var(--pico-del-color)'
+      stockToUpdate.innerHTML = '<s>' + product.name + ': ' + product.stock + '</s>'
+      stockToUpdate.style.color = 'var(--pico-del-color)'
     } else {
-      updatedStock.innerHTML = product.name + ': ' + product.stock
+      stockToUpdate.innerHTML = product.name + ': ' + product.stock
     }
-    container.appendChild(updatedStock)
+    stockDisplay.appendChild(stockToUpdate)
   }
 }
-displayStockLevels()
+updateStock()
+
+///////////////////////
+// -- Take Order -- //
+/////////////////////
+let ticketNumber = 0
+
+let takeOrder = document.getElementById('customerButton')
+takeOrder.addEventListener('click', () => { ticketNumber++, generateCustomerOrder() })
 
 ///////////////////////////////////////////
 // -- GENERATE RANDOM CUSTOMER ORDER -- //
@@ -98,7 +106,7 @@ displayStockLevels()
 let minOrderSize = 1
 let maxOrderSize = 5
 
-let customer = {}
+let currentCustomer = {}
 
 function generateCustomerOrder() {
   let orderSize = getRandomInt(minOrderSize, maxOrderSize)
@@ -116,16 +124,17 @@ function generateCustomerOrder() {
     let minutes = products[productKey].minutes
     let seconds = products[productKey].seconds
 
+
     order.push(name)
     productKeys.push(productKey)
     timers.push([minutes, seconds])
   }
 
-  customer.timer = timers
-  customer.order = order
-  customer.productKeys = productKeys
+  currentCustomer.timer = timers
+  currentCustomer.order = order
+  currentCustomer.productKeys = productKeys
   customerOrderAlert(order)
-  console.log(customer)
+  console.log(currentCustomer)
 }
 
 /////////////////////////////////
@@ -152,7 +161,7 @@ function acceptOrder() {
   openDialog.removeAttribute('open')
 
   processOrder()
-  tickets(ticketCounter)
+  tickets(ticketNumber)
 }
 
 //////////////////////////
@@ -163,8 +172,8 @@ function processOrder() {
 
   let saleTotal = 0
 
-  for (let i = 0; i < customer.order.length; i++) {
-    let productName = customer.productKeys[i]
+  for (let i = 0; i < currentCustomer.order.length; i++) {
+    let productName = currentCustomer.productKeys[i]
 
     if (products[productName].stock > 0) {
       products[productName].stock--
@@ -174,134 +183,168 @@ function processOrder() {
     }
   }
   cash += saleTotal
-  displayCash()
-  displayStockLevels()
+  updateTill()
+  updateStock()
+}
+
+/////////////////////////
+// -- CASH IN TILL -- //
+///////////////////////
+let cash = 0
+
+function updateTill() {
+  document.getElementById('cash').innerHTML = 'Cash In Till: ' + cash
 }
 
 
-// FIXME: not sure what to do with this code yet
-let customerOrderModal = {}
-let formatForCustomerOrder = []
 
-// DEBUG: orderFormat(name, minutes, seconds, i)
-// FIXME: move to generate ticket function
-// NOTE: I Changed productName to productKeys in the generate customer order function
-function orderFormat(productName, minutes, seconds, i) {
-  if (i === 0) {
-    formatForCustomerOrder.push('<p>a ' + productName)
-    formatForTicket.push('<p>' + productName)
-    formatForTimers.push('<p class="item-' + i + '">' + minutes + ':' + seconds)
-  }
-  else if (i === orderSize - 1) {
-    formatForCustomerOrder.push('</p><p>and a ' + productName + '</p>')
-    formatForTicket.push('</p><p>' + productName + '</p>')
-    formatForTimers.push('</p><p class="item-' + i + '">' + minutes + ':' + seconds + '</p>')
-  }
-  else {
-    formatForCustomerOrder.push('</p><p>' + productName)
-    formatForTicket.push('</p><p>' + productName)
-    formatForTimers.push('</p><p class="item-' + i + '">' + minutes + ':' + seconds)
-  }
 
-}
-customerOrderModal = formatForCustomerOrder
 
-////////////////////////////
-// -- GENERATE TICKET -- //
-//////////////////////////
+// // FIXME: not sure what to do with this code yet
+// let customerOrderModal = {}
+// let formatForCustomerOrder = []
+//
+// // DEBUG: orderFormat(name, minutes, seconds, i)
+// // FIXME: move to generate ticket function
+// // NOTE: I Changed productName to productKeys in the generate customer order function
+// function orderFormat(productName, minutes, seconds, i) {
+//   if (i === 0) {
+//     formatForCustomerOrder.push('<p>a ' + productName)
+//     formatForTicket.push('<p>' + productName)
+//     formatForTimers.push('<p class="item-' + i + '">' + minutes + ':' + seconds)
+//   }
+//   else if (i === orderSize - 1) {
+//     formatForCustomerOrder.push('</p><p>and a ' + productName + '</p>')
+//     formatForTicket.push('</p><p>' + productName + '</p>')
+//     formatForTimers.push('</p><p class="item-' + i + '">' + minutes + ':' + seconds + '</p>')
+//   }
+//   else {
+//     formatForCustomerOrder.push('</p><p>' + productName)
+//     formatForTicket.push('</p><p>' + productName)
+//     formatForTimers.push('</p><p class="item-' + i + '">' + minutes + ':' + seconds)
+//   }
+//
+// }
+// customerOrderModal = formatForCustomerOrder
+
+
+
+
+
 
 //NOTE: revisit when you get to generate ticket
 
-let printToTicket = {}
-let timerDisplay
-
-let formatForTicket = []
-let formatForTimers = []
-
+// let printToTicket = {}
+// let timerDisplay
+//
+// let formatForTicket = []
+// let formatForTimers = []
+//
 // FIXME: THIS should be moved to generate ticket function
 // let startBtn = document.createElement('button')
 // startBtn.id = 'startBtn'
 
 
-printToTicket.order = formatForTicket
-printToTicket.timer = formatForTimers
+// printToTicket.order = formatForTicket
+// printToTicket.timer = formatForTimers
 
 
-
-// -- PRINT TICKET -- //
-// ticketNumber parameter passes in the current ticket no. from ticketCounter
+////////////////////////////
+// -- GENERATE TICKET -- //
+//////////////////////////
 function tickets(ticketNumber) {
   let ticketHolder = document.getElementById('tickets')
-  let newContainer = document.createElement('div')
-  newContainer.id = ticketNumber
-  newContainer.className = 'ticket'
+  let newTicket = document.createElement('div')
+  newTicket.id = ticketNumber
+  newTicket.className = 'ticket'
 
   let ticketGrid = document.createElement('div')
   ticketGrid.className = 'grid ticket-info'
 
   let products = document.createElement('div')
-  products.innerHTML =
-    '<p>Order:</p><p>- - - -</p>' + printToTicket.order
+  products.id = 'products-' + ticketNumber
 
-  // let createTimer = document.createElement('p')
-  // createTimer.id = 'time'
-  // createTimer.innerHTML = 'time'
-  let ticketTimers = document.createElement('div')
-  ticketTimers.innerHTML = '<p>' + ticketCounter + '</p><p>-</p>' + printToTicket.timer
-  // ticketTimers.appendChild(createTimer)
-
-  let startBtn = document.createElement('button')
-  startBtn.id = 'startBtn'
-  startBtn.className = 'button'
-  startBtn.textContent = 'Start'
-  // HACK: Countdown timer just using values in countDown function as test
-  // TODO: get function to pull numbers in for the correct product
-  // TODO: and print each timer next the product
-  startBtn.addEventListener('click', function() {
-    startTimers()
-    startBtn.setAttribute('disabled', '')
-  })
-
-  let doneButton = document.createElement('button')
-  doneButton.id = 'ticket-' + ticketCounter
-  doneButton.className = 'button'
-  doneButton.textContent = 'Done'
-  doneButton.addEventListener('click', destroyTicket)
-  doneButton.setAttribute('disabled', '')
-
+  for (let getProductName in currentCustomer) {
+    let printProductName = document.createElement('p')
+    let product = currentCustomer[getProductName]
+    if (product.stock > 1) {
+      console.log('yay')
+      printProductName.innerHTML = '<s>' + product.name + ': ' + product.stock + '</s>'
+      // printProductName.style.color = 'var(--pico-del-color)'
+    } else {
+      console.log('nay')
+      printProductName.innerHTML = product.name + ': ' + product.stock
+    }
+    products.appendChild(printProductName)
+  }
   ticketGrid.appendChild(products)
-  ticketGrid.appendChild(ticketTimers)
 
-  newContainer.appendChild(ticketGrid)
-  newContainer.appendChild(doneButton)
-  newContainer.appendChild(startBtn)
+  newTicket.appendChild(ticketGrid)
 
-  ticketHolder.appendChild(newContainer)
-  timerDisplay = customer.timer
+  ticketHolder.appendChild(newTicket)
 }
+
+
+
+
+// -- PRINT TICKET -- //
+// function tickets(ticketNumber) {
+//   let ticketHolder = document.getElementById('tickets')
+//   let newTicket = document.createElement('div')
+//   newTicket.id = ticketNumber
+//   newTicket.className = 'ticket'
+//
+//   let ticketGrid = document.createElement('div')
+//   ticketGrid.className = 'grid ticket-info'
+//
+// let products = document.createElement('div')
+// products.innerHTML =
+//   '<p>Order:</p><p>- - - -</p>' + currentCustomer.order
+//
+// let createTimer = document.createElement('p')
+// createTimer.id = 'time'
+// createTimer.innerHTML = 'time'
+// let ticketTimers = document.createElement('div')
+// ticketTimers.innerHTML = '<p>' + ticketNumber + '</p><p>-</p>' + currentCustomer.timer
+// ticketTimers.appendChild(createTimer)
+//
+//   let startBtn = document.createElement('button')
+//   startBtn.id = 'startBtn'
+//   startBtn.className = 'button'
+//   startBtn.textContent = 'Start'
+//   // HACK: Countdown timer just using values in countDown function as test
+//   // TODO: get function to pull numbers in for the correct product
+//   // TODO: and print each timer next the product
+//   startBtn.addEventListener('click', function() {
+//     startTimers()
+//     startBtn.setAttribute('disabled', '')
+//   })
+//
+//   let doneButton = document.createElement('button')
+//   doneButton.id = 'ticket-' + ticketNumber
+//   doneButton.className = 'button'
+//   doneButton.textContent = 'Done'
+//   doneButton.addEventListener('click', destroyTicket)
+//   doneButton.setAttribute('disabled', '')
+//
+// ticketGrid.appendChild(products)
+// ticketGrid.appendChild(ticketTimers)
+//
+// newTicket.appendChild(ticketGrid)
+// newTicket.appendChild(doneButton)
+// newTicket.appendChild(startBtn)
+//
+// ticketHolder.appendChild(newTicket)
+// timerDisplay = currentCustomer.timer
+// }
 
 // -- DESTROY TICKET -- //
-function destroyTicket() {
-  let parentElement = this.parentNode
-  parentElement.parentNode.removeChild(parentElement)
-}
+// function destroyTicket() {
+//   let parentElement = this.parentNode
+//   parentElement.parentNode.removeChild(parentElement)
+// }
 
-// -- TRANSACTIONS -- //
-let cash = 0
 
-function displayCash() {
-  document.getElementById('cash').innerHTML = 'Cash In Till: ' + cash
-}
-displayCash()
-
-// -- TICKET NUMBERING -- //
-
-let ticketCounter = 0
-let takeOrder = document.getElementById('customerButton')
-takeOrder.addEventListener('click', () => {
-  ticketCounter++
-  generateCustomerOrder()
-})
 // -- UTIL -- //
 
 function getRandomInt(min, max) {
@@ -315,54 +358,54 @@ function getRandomInt(min, max) {
 // Added timer here //
 /////////////////////
 /////////////////////
-function startTimers() {
-  for (let i = 0; i < customer.timer.length; i++) {
-    timerDisplay = document.getElementById('item-' + [i])
-
-    let isRunning = false
-    let interval
-
-    let minutes = 0
-    let seconds = 11
-    // window.onload = countDown()
-
-    //function to update screen every second
-    function updateTimer() {
-      if (seconds > 0 || minutes > 0) {
-        timerDisplay.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
-      } else {
-        timerDisplay.innerHTML = '<small>COMPLETE</small>'
-        timerDisplay.style.color = 'var(--pico-ins-color)'
-      }
-    }
-
-    //make the start and stop buttons start and stop timer
-    function countDown(doneButton) {
-      if (!isRunning) {
-        isRunning = true
-        timerDisplay.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
-        timerDisplay.style.color = 'var(--pico-del-color)'
-
-        interval = setInterval(() => {
-          if (seconds > 0 || minutes > 0) {
-            seconds--
-            if (seconds === 0 && minutes > 0) {
-              seconds = 59
-              minutes--
-            }
-            updateTimer()
-          } else {
-            clearInterval(interval)
-            isRunning = false
-            doneButton.removeAttribute('disabled')
-          }
-        }, 1000)
-      } else {
-        clearInterval(interval)
-        isRunning = false
-        // doneButton.removeAttribute('disabled')
-      }
-    }
-    countDown()
-  }
-}
+// function startTimers() {
+//   for (let i = 0; i < currentCustomer.timer.length; i++) {
+//     timerDisplay = document.getElementById('item-' + [i])
+//
+//     let isRunning = false
+//     let interval
+//
+//     let minutes = 0
+//     let seconds = 11
+//     // window.onload = countDown()
+//
+//     //function to update screen every second
+//     function updateTimer() {
+//       if (seconds > 0 || minutes > 0) {
+//         timerDisplay.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+//       } else {
+//         timerDisplay.innerHTML = '<small>COMPLETE</small>'
+//         timerDisplay.style.color = 'var(--pico-ins-color)'
+//       }
+//     }
+//
+//     //make the start and stop buttons start and stop timer
+//     function countDown(doneButton) {
+//       if (!isRunning) {
+//         isRunning = true
+//         timerDisplay.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+//         timerDisplay.style.color = 'var(--pico-del-color)'
+//
+//         interval = setInterval(() => {
+//           if (seconds > 0 || minutes > 0) {
+//             seconds--
+//             if (seconds === 0 && minutes > 0) {
+//               seconds = 59
+//               minutes--
+//             }
+//             updateTimer()
+//           } else {
+//             clearInterval(interval)
+//             isRunning = false
+//             doneButton.removeAttribute('disabled')
+//           }
+//         }, 1000)
+//       } else {
+//         clearInterval(interval)
+//         isRunning = false
+//         // doneButton.removeAttribute('disabled')
+//       }
+//     }
+//     countDown()
+//   }
+// }
