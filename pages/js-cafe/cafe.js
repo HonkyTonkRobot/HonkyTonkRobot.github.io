@@ -70,7 +70,6 @@ displayProducts()
 // -- DISPLAY STOCK -- //
 ////////////////////////
 
-
 function displayStockLevels() {
   let container = document.getElementById('stock')
 
@@ -79,20 +78,14 @@ function displayStockLevels() {
   }
 
   for (let currentStock in products) {
-    let product = products[currentStock]
-    let productStock = ""
-    if (product.stock === 0) {
-      productStock = '<s>' + product.name + ': ' + product.stock + '</s>'
-    } else {
-      productStock = product.name + ': ' + product.stock
-    }
-    addProductToStock(productStock)
-  } Can
-
-  function addProductToStock(stockDescription) {
-    let container = document.getElementById('stock')
     let updatedStock = document.createElement('p')
-    updatedStock.innerHTML = stockDescription
+    let product = products[currentStock]
+    if (product.stock === 0) {
+      updatedStock.innerHTML = '<s>' + product.name + ': ' + product.stock + '</s>'
+      updatedStock.style.color = 'var(--pico-del-color)'
+    } else {
+      updatedStock.innerHTML = product.name + ': ' + product.stock
+    }
     container.appendChild(updatedStock)
   }
 }
