@@ -39,78 +39,36 @@
 
 // -- JAVASCRIPT CAFE! -- //
 
+/////////////////////
 // -- PRODUCTS -- //
-let products = {
-  whiteCoffee: {
-    productName: 'White Coffee',
-    price: 5,
-    stock: 8,
-    minutes: 2,
-    seconds: 59,
-  },
+///////////////////
 
-  blackCoffee: {
-    productName: 'Black Coffee',
-    price: 3.5,
-    stock: 13,
-    minutes: 1,
-    seconds: 37,
-  },
+import { products } from './products.js'
 
-  muffin: {
-    productName: 'Muffin',
-    price: 4,
-    stock: 4,
-    minutes: 0,
-    seconds: 59,
-  },
-
-  avocadoToast: {
-    productName: 'Avocado Toast',
-    price: 11,
-    stock: 7,
-    minutes: 4,
-    seconds: 59,
-  },
-
-  cheeseScone: {
-    productName: 'Cheese Scone',
-    price: 6,
-    stock: 8,
-    minutes: 0,
-    seconds: 59,
-  },
-
-  dogBiscuit: {
-    productName: 'Dog Biscuit',
-    price: 1,
-    stock: 20,
-    minutes: 0,
-    seconds: 11,
-  },
-}
-
-// -- BUILD PRODUCT MENU -- //
+/////////////////////////
+// -- DISPLAY MENU -- //
+///////////////////////
 
 function addProductToMenu(productDescription) {
   let container = document.getElementById('menu')
   let newProduct = document.createElement('p')
   newProduct.textContent = productDescription
   container.appendChild(newProduct)
-  // console.log(newProduct)
 }
 
 function displayProducts() {
   for (let getProducts in products) {
     let product = products[getProducts]
-    let productInfo = product.productName + ': $' + product.price
+    let productInfo = product.name + ': $' + product.price
 
     addProductToMenu(productInfo)
   }
 }
 displayProducts()
 
-// -- BUILD STOCK TRACKER SCREEN -- //
+//////////////////////////
+// -- DISPLAY STOCK -- //
+////////////////////////
 
 function addProductToStock(stockDescription) {
   let container = document.getElementById('stock')
@@ -128,100 +86,100 @@ function displayStockLevels() {
 
   for (let getProducts in products) {
     let product = products[getProducts]
-    let productStock = product.productName + ': ' + product.stock
+    let productStock = product.name + ': ' + product.stock
     addProductToStock(productStock)
   }
 }
 displayStockLevels()
 
-// -- GENERATE CUSTOMER ORDER -- //
-
-let customer = {
-  order: [],
-  timer: [],
-}
-
-let printToTicket = {
-  order: [],
-  timer: [],
-}
-let customerOrderModal = {
-  order: [],
-}
-
-let timerDisplay
+///////////////////////////////////////////
+// -- GENERATE RANDOM CUSTOMER ORDER -- //
+/////////////////////////////////////////
 
 let minOrderSize = 1
 let maxOrderSize = 5
 
+let customer = {}
+
 function generateCustomerOrder() {
   let orderSize = getRandomInt(minOrderSize, maxOrderSize)
-
-  let formatForCustomerOrder = []
-
-  let newOrder = []
-  let timers = []
-
-  let formatForTicket = []
-  let formatForTimers = []
-
-  let startBtn = document.createElement('button')
-  startBtn.id = 'startBtn'
-
   let productNames = Object.keys(products)
+
+  let order = []
+  let productKeys = []
+  let timers = []
 
   for (let i = 0; i < orderSize; i++) {
     let productIndex = getRandomInt(0, productNames.length - 1)
-    let productName = productNames[productIndex]
-    let minutes = products[productName].minutes
-    let seconds = products[productName].seconds
 
-    // TODO: see if possible to make this a function that is called inside of timers.push()
+    let productKey = productNames[productIndex]
+    let name = products[productKey].name
+    let minutes = products[productKey].minutes
+    let seconds = products[productKey].seconds
 
-    newOrder.push(productName)
+    order.push(name)
+    productKeys.push(productKey)
     timers.push([minutes, seconds])
-
-    orderFormat(productName, minutes, seconds, i)
-
-    // OPTIMIZE: remove on refactor
-    // timers.minutes = minutes
-    // timers.seconds = seconds
-    // allTimers[i] = timers
-    // console.log(minutes + ":" + seconds)
-    // let timer = minutes + ":" + seconds
-    // timers.push(minutes, seconds)
-
   }
 
-  // seperate out order formatting
-  function orderFormat(productName, minutes, seconds, i) {
-    if (i === 0) {
-      formatForCustomerOrder.push('<p>a ' + productName)
-      formatForTicket.push('<p>' + productName)
-      formatForTimers.push('<p class="item-' + i + '">' + minutes + ':' + seconds)
-    }
-    else if (i === orderSize - 1) {
-      formatForCustomerOrder.push('</p><p>and a ' + productName + '</p>')
-      formatForTicket.push('</p><p>' + productName + '</p>')
-      formatForTimers.push('</p><p class="item-' + i + '">' + minutes + ':' + seconds + '</p>')
-    }
-    else {
-      formatForCustomerOrder.push('</p><p>' + productName)
-      formatForTicket.push('</p><p>' + productName)
-      formatForTimers.push('</p><p class="item-' + i + '">' + minutes + ':' + seconds)
-    }
-
-  }
-  customerOrderModal = formatForCustomerOrder
-
-  printToTicket.order = formatForTicket
-  printToTicket.timer = formatForTimers
   customer.timer = timers
-  customer.order = newOrder
+  customer.order = order
+  customer.productKeys = productKeys
   customerOrderAlert()
-  console.log(customer.order)
-  console.log(customer.timer)
+  console.log(customer)
 }
+
+/////////////////////////////////
+// -- GENERATE ORDER MODAL -- //
+///////////////////////////////
+
+let customerOrderModal = {}
+let formatForCustomerOrder = []
+
+// DEBUG: orderFormat(name, minutes, seconds, i)
+// FIXME: move to generate ticket function
+// NOTE: I Changed productName to productKeys in the generate customer order function
+function orderFormat(productName, minutes, seconds, i) {
+  if (i === 0) {
+    formatForCustomerOrder.push('<p>a ' + productName)
+    formatForTicket.push('<p>' + productName)
+    formatForTimers.push('<p class="item-' + i + '">' + minutes + ':' + seconds)
+  }
+  else if (i === orderSize - 1) {
+    formatForCustomerOrder.push('</p><p>and a ' + productName + '</p>')
+    formatForTicket.push('</p><p>' + productName + '</p>')
+    formatForTimers.push('</p><p class="item-' + i + '">' + minutes + ':' + seconds + '</p>')
+  }
+  else {
+    formatForCustomerOrder.push('</p><p>' + productName)
+    formatForTicket.push('</p><p>' + productName)
+    formatForTimers.push('</p><p class="item-' + i + '">' + minutes + ':' + seconds)
+  }
+
+}
+customerOrderModal = formatForCustomerOrder
+
+////////////////////////////
+// -- GENERATE TICKET -- //
+//////////////////////////
+
+//NOTE: revisit when you get to generate ticket
+
+let printToTicket = {}
+let timerDisplay
+
+let formatForTicket = []
+let formatForTimers = []
+
+// FIXME: THIS should be moved to generate ticket function
+// let startBtn = document.createElement('button')
+// startBtn.id = 'startBtn'
+
+
+printToTicket.order = formatForTicket
+printToTicket.timer = formatForTimers
+
+
 
 // -- PRINT TICKET -- //
 // ticketNumber parameter passes in the current ticket no. from ticketCounter
@@ -345,7 +303,7 @@ function processOrder() {
   let saleTotal = 0
 
   for (let i = 0; i < customer.order.length; i++) {
-    let productName = customer.order[i]
+    let productName = customer.productKeys[i]
     // console.log(customer.order[i])
     if (products[productName].stock > 0) {
       products[productName].stock--
@@ -353,26 +311,7 @@ function processOrder() {
     } else {
       alert('Sorry we are out of ' + productName)
     }
-  }
-  cash += saleTotal
-  displayCash()
-  displayStockLevels()
-}
-
-// -- Process Order -- //
-function makeTimers() {
-
-  let saleTotal = 0
-
-  for (let i = 0; i < customer.order.length; i++) {
-    let productName = customer.order[i]
-    // console.log(customer.order[i])
-    if (products[productName].stock > 0) {
-      products[productName].stock--
-      saleTotal += products[productName].price
-    } else {
-      alert('Sorry we are out of ' + productName)
-    }
+    // console.log(productName)
   }
   cash += saleTotal
   displayCash()
