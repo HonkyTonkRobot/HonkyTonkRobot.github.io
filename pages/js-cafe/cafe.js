@@ -6,8 +6,8 @@
 //
 // new flow map
 // 1. click take order button
-// >>> function to generate random order in an object with an array of product names and the time to make them
-// >>> function to format "order" copy, order accept button, and display modal
+// [x] function to generate random order in an object with an array of product names and the time to make them
+// [x] function to format "order" copy, order accept button, and display modal
 //
 // 2. click order accept button
 // >>> function to update till
@@ -70,12 +70,6 @@ displayProducts()
 // -- DISPLAY STOCK -- //
 ////////////////////////
 
-function addProductToStock(stockDescription) {
-  let container = document.getElementById('stock')
-  let currentStock = document.createElement('p')
-  currentStock.textContent = stockDescription
-  container.appendChild(currentStock)
-}
 
 function displayStockLevels() {
   let container = document.getElementById('stock')
@@ -84,10 +78,22 @@ function displayStockLevels() {
     container.removeChild(container.firstChild)
   }
 
-  for (let getProducts in products) {
-    let product = products[getProducts]
-    let productStock = product.name + ': ' + product.stock
+  for (let currentStock in products) {
+    let product = products[currentStock]
+    let productStock = ""
+    if (product.stock === 0) {
+      productStock = '<s>' + product.name + ': ' + product.stock + '</s>'
+    } else {
+      productStock = product.name + ': ' + product.stock
+    }
     addProductToStock(productStock)
+  } Can
+
+  function addProductToStock(stockDescription) {
+    let container = document.getElementById('stock')
+    let updatedStock = document.createElement('p')
+    updatedStock.innerHTML = stockDescription
+    container.appendChild(updatedStock)
   }
 }
 displayStockLevels()
@@ -125,14 +131,62 @@ function generateCustomerOrder() {
   customer.timer = timers
   customer.order = order
   customer.productKeys = productKeys
-  customerOrderAlert()
+  customerOrderAlert(order)
   console.log(customer)
 }
 
 /////////////////////////////////
-// -- GENERATE ORDER MODAL -- //
+// -- DISPLAY ORDER MODAL -- ///
 ///////////////////////////////
+let openDialog = document.getElementById('customerOrder')
+let scrollStatus = document.documentElement
 
+function customerOrderAlert(currentOrder) {
+
+  let customerOrderAlert = document.getElementById('displayCustomerOrder')
+  customerOrderAlert.innerHTML = "<strong>Can I please order:</strong>" + currentOrder
+  openDialog.setAttribute('open', '')
+  openDialog.addEventListener('click', acceptOrder)
+  scrollStatus.className = 'modal-is-open modal-is-opening'
+}
+
+////////////////////////// NOTES: acceptOrder function is
+// -- ACCEPT ORDER -- ///         triggered by click event in
+////////////////////////          customerOrderAlert function
+
+function acceptOrder() {
+  scrollStatus.className = ''
+  openDialog.removeAttribute('open')
+
+  processOrder()
+  tickets(ticketCounter)
+}
+
+//////////////////////////
+// -- Process Order -- //
+////////////////////////
+
+function processOrder() {
+
+  let saleTotal = 0
+
+  for (let i = 0; i < customer.order.length; i++) {
+    let productName = customer.productKeys[i]
+
+    if (products[productName].stock > 0) {
+      products[productName].stock--
+      saleTotal += products[productName].price
+    } else {
+      alert('Sorry we are out of ' + productName)
+    }
+  }
+  cash += saleTotal
+  displayCash()
+  displayStockLevels()
+}
+
+
+// FIXME: not sure what to do with this code yet
 let customerOrderModal = {}
 let formatForCustomerOrder = []
 
@@ -203,17 +257,6 @@ function tickets(ticketNumber) {
   ticketTimers.innerHTML = '<p>' + ticketCounter + '</p><p>-</p>' + printToTicket.timer
   // ticketTimers.appendChild(createTimer)
 
-  // OPTIMIZE: Delete on next refactor
-  // let newTicket = document.createElement('div')
-  // newTicket.id = ticketNumber
-  // newTicket.className = 'ticket'
-  // newContainer.appendChild(newTicket)
-  // newContainer.appendChild(orderList, makeTimer)
-
-  // OPTIMIZE: Delete on next refactor
-  // let ticketInfoHolder = document.getElementById(ticketNumber)
-  // let ticketInfo = document.createElement('p')
-
   let startBtn = document.createElement('button')
   startBtn.id = 'startBtn'
   startBtn.className = 'button'
@@ -233,12 +276,6 @@ function tickets(ticketNumber) {
   doneButton.addEventListener('click', destroyTicket)
   doneButton.setAttribute('disabled', '')
 
-  // OPTIMIZE: remove on refactor
-  // orderButton.setAttribute('onclick', 'destroyTicket(this)')
-  // let test = '2:00'
-  // products.appendChild(ticketInfo)
-  // ticketTimers.appendChild(test)
-
   ticketGrid.appendChild(products)
   ticketGrid.appendChild(ticketTimers)
 
@@ -250,21 +287,10 @@ function tickets(ticketNumber) {
   timerDisplay = customer.timer
 }
 
-// -- Ticket Timers -- //
-// TODO: create timer start buttons for each food item
-// TODO: create onclick event that
-// TODO: and also removes button
-// TODO: and also creates the timer display
-// TODO: and calls countdown function
-//
-//OPTIMIZE: next refactor
-
 // -- DESTROY TICKET -- //
 function destroyTicket() {
-  // let buttonId = buttonClick.id
   let parentElement = this.parentNode
   parentElement.parentNode.removeChild(parentElement)
-  // console.log(this.parentNode)
 }
 
 // -- TRANSACTIONS -- //
@@ -274,49 +300,6 @@ function displayCash() {
   document.getElementById('cash').innerHTML = 'Cash In Till: ' + cash
 }
 displayCash()
-
-// -- New Customer Order Alert -- //
-let openDialog = document.getElementById('customerOrder')
-let scrollStatus = document.documentElement
-function customerOrderAlert() {
-  //TODO: If statement for orders with eggs
-  // - Create How would you like your eggs button with an ID
-  // - figure out how to make it render before the acceptOrder button
-
-  let customerOrder = document.getElementById('displayCustomerOrder')
-  customerOrder.innerHTML = "<strong>Can I please order:</strong>" + customerOrderModal
-  openDialog.setAttribute('open', '')
-  scrollStatus.className = 'modal-is-open modal-is-opening'
-}
-
-openDialog.addEventListener('click', acceptOrder)
-function acceptOrder() {
-  scrollStatus.className = ''
-  openDialog.removeAttribute('open')
-  processOrder()
-  tickets(ticketCounter)
-}
-
-// -- Process Order -- //
-function processOrder() {
-
-  let saleTotal = 0
-
-  for (let i = 0; i < customer.order.length; i++) {
-    let productName = customer.productKeys[i]
-    // console.log(customer.order[i])
-    if (products[productName].stock > 0) {
-      products[productName].stock--
-      saleTotal += products[productName].price
-    } else {
-      alert('Sorry we are out of ' + productName)
-    }
-    // console.log(productName)
-  }
-  cash += saleTotal
-  displayCash()
-  displayStockLevels()
-}
 
 // -- TICKET NUMBERING -- //
 
