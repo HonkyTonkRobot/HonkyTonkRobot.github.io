@@ -58,13 +58,13 @@ Database > Table > column/fields > Row/Record (with values)
 
 ### Testing Databases
 
-+--------------------+        +-------------+ <br/>..
-| Users              |        | Bookmarks   | <br/>..
-+--------------------+        +-------------+ <br/>..
-| id                 |<---    | id          | <br/>..
-| name               |    \   | link        | <br/>..
-| address            |     ---| user_id     | <br/>..
-+--------------------+        +-------------+ <br/>..
++--------------------+        +-------------+ <br/>
+| Users              |        | Bookmarks   | <br/>
++--------------------+        +-------------+ <br/>
+| id                 |<---    | id          | <br/>
+| name               |    \   | link        | <br/>
+| address            |     ---| user_id     | <br/>
++--------------------+        +-------------+ <br/>
 
 # Database Schema
 
