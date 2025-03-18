@@ -65,3 +65,26 @@ Database > Table > column/fields > Row/Record (with values)
 | name               |    \   | link        |
 | address            |     ---| user_id     |
 +--------------------+        +-------------+
+
+# Database Schema
+
+## Users Table
+
+| Users              |        |
+|--------------------|--------|
+| **Column**         | **Type** |
+| id                 | Integer |
+| name               | String  |
+| address            | String  |
+
+## Bookmarks Table
+
+| Bookmarks          |        |
+|--------------------|--------|
+| **Column**         | **Type** |
+| id                 | Integer |
+| link               | String  |
+| user_id            | Integer (FK) |
+
+### Relationship
+- `Bookmarks.user_id` references `Users.id`
