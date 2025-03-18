@@ -33,7 +33,7 @@
 - EG: Postgres, MS SQL Server, SQLite
 
 #### Where do they live?
-- Ebedded
+- Embedded
 - Served
 - Distributed (lives everwhere)
 
